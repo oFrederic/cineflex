@@ -134,13 +134,63 @@ Open [http://localhost:5173](http://localhost:5173) to view the application.
 
 ### 🔑 Environment Setup
 
-Create a `.env` file in the root directory:
+#### **Required Setup**
 
-```env
-# TMDB API Configuration (Required)
-VITE_TMDB_API_KEY=your_tmdb_api_key_here
-VITE_TMDB_API_URL=https://api.themoviedb.org/3
-VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p
+1. **Copy the example environment file:**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Get your TMDB API key:**
+   - Visit [The Movie Database](https://www.themoviedb.org/settings/api)
+   - Sign up for a free account
+   - Generate an API key
+   - Copy the API key to your `.env` file
+
+3. **Update your `.env` file:**
+
+   ```env
+   # TMDB API Configuration (REQUIRED)
+   VITE_TMDB_API_KEY=your_actual_api_key_here
+
+   # Optional: Override defaults if needed
+   VITE_TMDB_API_URL=https://api.themoviedb.org/3
+   VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p
+   ```
+
+#### **Environment Variables Reference**
+
+| Variable                   | Required | Default                        | Description                  |
+| -------------------------- | -------- | ------------------------------ | ---------------------------- |
+| `VITE_TMDB_API_KEY`        | ✅ Yes   | -                              | Your TMDB API key            |
+| `VITE_TMDB_API_URL`        | ❌ No    | `https://api.themoviedb.org/3` | TMDB API base URL            |
+| `VITE_TMDB_IMAGE_BASE_URL` | ❌ No    | `https://image.tmdb.org/t/p`   | TMDB image base URL          |
+| `VITE_APP_NAME`            | ❌ No    | `CineFlex`                     | Application name             |
+| `VITE_DEBUG_MODE`          | ❌ No    | `false`                        | Enable debug mode            |
+| `VITE_USE_MOCK_DATA`       | ❌ No    | `false`                        | Use mock data instead of API |
+
+#### **Environment File Types**
+
+- **`.env`** - Local development (gitignored)
+- **`.env.local`** - Local overrides (gitignored)
+- **`.env.development`** - Development-specific settings
+- **`.env.production`** - Production-specific settings
+- **`.env.example`** - Template file (committed to git)
+
+#### **TypeScript Support**
+
+Environment variables are fully typed with TypeScript. Import them from the utils:
+
+```typescript
+import { tmdbConfig, appConfig, validateEnvironment } from '@/utils/env';
+
+// Validate environment on app startup
+validateEnvironment();
+
+// Use typed environment variables
+const apiKey = tmdbConfig.apiKey;
+const appName = appConfig.name;
 ```
 
 ---
