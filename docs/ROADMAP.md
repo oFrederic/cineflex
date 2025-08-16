@@ -1,4 +1,5 @@
 # 🗺️ CineFlex Development Roadmap
+
 ## From Zero to Production-Ready Movie Discovery App
 
 <div align="center">
@@ -7,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-*A comprehensive 12-week development plan to build a production-ready movie discovery application*
+_A comprehensive 12-week development plan to build a production-ready movie discovery application_
 
 </div>
 
@@ -39,6 +40,7 @@
 > **Before starting development, review [DESIGN.md](./DESIGN.md)** - your complete design system guide with colors, typography, spacing, components, and implementation details. All design decisions reference this single source of truth.
 
 ### 🎪 Project Goals
+
 - Build a **portfolio-ready** movie discovery application
 - Demonstrate **modern React development** practices
 - Implement **production-grade** architecture and performance
@@ -46,6 +48,7 @@
 - Deploy a **fully functional** web application
 
 ### 👥 Target Audience
+
 - **Frontend developers** learning modern React
 - **Portfolio builders** seeking impressive projects
 - **Students** wanting real-world experience
@@ -55,14 +58,14 @@
 
 ## ⏰ Timeline Summary
 
-| Phase | Duration | Focus | Key Deliverables |
-|-------|----------|-------|------------------|
-| **Phase 1** | 2 weeks | Foundation | Project setup, tooling, basic structure |
-| **Phase 2** | 2 weeks | Core UI | Layout, components, responsive design |
-| **Phase 3** | 2 weeks | API Integration | Data fetching, state management |
-| **Phase 4** | 2 weeks | Advanced Features | Search, filters, watchlist |
-| **Phase 5** | 2 weeks | Testing & QA | Unit tests, integration tests, debugging |
-| **Phase 6** | 2 weeks | Production | Performance optimization, deployment |
+| Phase       | Duration | Focus             | Key Deliverables                         |
+| ----------- | -------- | ----------------- | ---------------------------------------- |
+| **Phase 1** | 2 weeks  | Foundation        | Project setup, tooling, basic structure  |
+| **Phase 2** | 2 weeks  | Core UI           | Layout, components, responsive design    |
+| **Phase 3** | 2 weeks  | API Integration   | Data fetching, state management          |
+| **Phase 4** | 2 weeks  | Advanced Features | Search, filters, watchlist               |
+| **Phase 5** | 2 weeks  | Testing & QA      | Unit tests, integration tests, debugging |
+| **Phase 6** | 2 weeks  | Production        | Performance optimization, deployment     |
 
 **Total Duration**: 12 weeks (3 months)  
 **Effort Level**: 15-20 hours per week  
@@ -79,26 +82,26 @@ gantt
     section Foundation
     Project Setup      :a1, 2024-01-01, 7d
     Dev Environment    :a2, after a1, 7d
-    
+
     section Core UI
     Design System      :b1, after a2, 5d
     Layout Components  :b2, after b1, 5d
     Movie Components   :b3, after b2, 4d
-    
+
     section API Integration
     HTTP Client Setup  :c1, after b3, 3d
     TMDB Integration   :c2, after c1, 5d
     State Management   :c3, after c2, 6d
-    
+
     section Advanced Features
     Search Feature     :d1, after c3, 5d
     Filtering System   :d2, after d1, 4d
     Watchlist Feature  :d3, after d2, 5d
-    
+
     section Testing
     Unit Tests         :e1, after d3, 7d
     Integration Tests  :e2, after e1, 7d
-    
+
     section Production
     Performance Opt    :f1, after e2, 7d
     Deployment         :f2, after f1, 7d
@@ -109,11 +112,13 @@ gantt
 ## 🏗️ Phase 1: Project Foundation (Week 1-2)
 
 ### 🎯 **Objectives**
+
 Set up a solid foundation with modern tooling, project structure, and development environment.
 
 ### 📅 **Week 1: Project Setup & Tooling**
 
 #### **Day 1-2: Initial Setup**
+
 - [ ] **Create Vite React TypeScript project**
   ```bash
   npm create vite@latest cineflex --template react-ts
@@ -131,6 +136,7 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 - [ ] **Configure `.gitignore` for React/TypeScript**
 
 #### **Day 3-4: Development Environment**
+
 - [ ] **Install and configure ESLint + Prettier**
   ```bash
   npm install -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
@@ -145,6 +151,7 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 - [ ] **Set up environment variables** (`.env`, `.env.example`)
 
 #### **Day 5-7: Project Architecture**
+
 - [ ] **Create folder structure** according to README specifications
 - [ ] **Set up path aliases** in `vite.config.ts` and `tsconfig.json`
 - [ ] **Install core dependencies**:
@@ -158,6 +165,7 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 ### 📅 **Week 2: Foundation Components**
 
 #### **Day 8-10: Basic Infrastructure**
+
 - [ ] **Create global styles and CSS variables**
 - [ ] **Build basic layout components**:
   - `src/components/layout/Header/`
@@ -167,6 +175,7 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 - [ ] **Create utility functions and constants**
 
 #### **Day 11-14: Development Tooling**
+
 - [ ] **Configure Vitest for testing**
   ```bash
   npm install -D vitest @testing-library/react @testing-library/jest-dom
@@ -177,6 +186,7 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 - [ ] **Set up CI/CD pipeline** (GitHub Actions for quality checks)
 
 ### ✅ **Phase 1 Deliverables**
+
 - [ ] Fully configured development environment
 - [ ] Project structure with proper folder organization
 - [ ] Basic routing and layout system
@@ -189,13 +199,15 @@ Set up a solid foundation with modern tooling, project structure, and developmen
 ## 🎨 Phase 2: Core UI Development (Week 3-4)
 
 ### 🎯 **Objectives**
+
 Build the core user interface with responsive design, reusable components, and a cohesive design system.
 
 ### 📅 **Week 3: Design System Implementation & Components**
 
 #### **Day 15-17: Design System Implementation**
+
 - [ ] **📖 Study DESIGN.md** - Review complete design system guide
-- [ ] **🎨 Implement design system CSS** - Copy design-system.css from DESIGN.md  
+- [ ] **🎨 Implement design system CSS** - Copy design-system.css from DESIGN.md
 - [ ] **🌈 Set up color variables** - Implement Netflix-inspired dark theme
 - [ ] **📝 Configure typography** - Inter font with 4pt-grid type scale
 - [ ] **Build foundational components**:
@@ -205,6 +217,7 @@ Build the core user interface with responsive design, reusable components, and a
   - `ErrorBoundary` component
 
 #### **Day 18-21: Layout Components**
+
 - [ ] **Build responsive Header component** following DESIGN.md specs:
   - Logo/branding with design system colors
   - Navigation menu with Netflix-style interactions
@@ -217,6 +230,7 @@ Build the core user interface with responsive design, reusable components, and a
 ### 📅 **Week 4: Movie Components & Responsive Design**
 
 #### **Day 22-25: Movie Display Components**
+
 - [ ] **Create MovieCard component** using DESIGN.md specifications:
   - Movie poster display with 2/3 aspect ratio
   - Title and metadata using design system typography
@@ -232,6 +246,7 @@ Build the core user interface with responsive design, reusable components, and a
   - Cast and crew sections
 
 #### **Day 26-28: Responsive Design & Polish**
+
 - [ ] **Implement responsive breakpoints** from DESIGN.md:
   - Use design system breakpoints (xs: 475px, sm: 640px, md: 768px, lg: 1024px, xl: 1280px)
   - Implement responsive movie grid (2→6 columns)
@@ -241,6 +256,7 @@ Build the core user interface with responsive design, reusable components, and a
 - [ ] **Optimize for mobile-first approach** using design system containers
 
 ### ✅ **Phase 2 Deliverables**
+
 - [ ] **Design system implementation** based on DESIGN.md specifications
 - [ ] **Responsive layout components** (Header, Footer, MainLayout) using design system
 - [ ] **Movie display components** (MovieCard, MovieGrid) following DESIGN.md patterns
@@ -253,28 +269,33 @@ Build the core user interface with responsive design, reusable components, and a
 ## 🔌 Phase 3: API Integration (Week 5-6)
 
 ### 🎯 **Objectives**
+
 Integrate with TMDB API, implement robust data fetching, and set up efficient state management.
 
 ### 📅 **Week 5: HTTP Client & TMDB Integration**
 
 #### **Day 29-31: HTTP Client Setup**
+
 - [ ] **Get TMDB API key** from [themoviedb.org](https://www.themoviedb.org/settings/api)
 - [ ] **Create HTTP client service**:
+
   ```typescript
   // src/shared/services/httpClient.ts
   import axios from 'axios';
-  
+
   const httpClient = axios.create({
     baseURL: import.meta.env.VITE_TMDB_API_URL,
     headers: {
-      'Authorization': `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
     },
   });
   ```
+
 - [ ] **Set up request/response interceptors**
 - [ ] **Implement error handling and retry logic**
 
 #### **Day 32-35: TMDB API Integration**
+
 - [ ] **Create TypeScript interfaces** for TMDB data:
   - `Movie`, `MovieDetails`, `MovieResponse`
   - `Genre`, `Cast`, `Crew`
@@ -291,6 +312,7 @@ Integrate with TMDB API, implement robust data fetching, and set up efficient st
 ### 📅 **Week 6: State Management & Data Flow**
 
 #### **Day 36-39: TanStack Query Setup**
+
 - [ ] **Install and configure TanStack Query**:
   ```bash
   npm install @tanstack/react-query @tanstack/react-query-devtools
@@ -303,6 +325,7 @@ Integrate with TMDB API, implement robust data fetching, and set up efficient st
 - [ ] **Implement caching strategies** and stale time configuration
 
 #### **Day 40-42: Global State with Zustand**
+
 - [ ] **Set up Zustand store**:
   ```typescript
   // src/shared/stores/appStore.ts
@@ -319,6 +342,7 @@ Integrate with TMDB API, implement robust data fetching, and set up efficient st
 - [ ] **Connect components to state management**
 
 ### ✅ **Phase 3 Deliverables**
+
 - [ ] Fully functional TMDB API integration
 - [ ] Type-safe HTTP client with error handling
 - [ ] TanStack Query setup with caching
@@ -332,11 +356,13 @@ Integrate with TMDB API, implement robust data fetching, and set up efficient st
 ## ✨ Phase 4: Advanced Features (Week 7-8)
 
 ### 🎯 **Objectives**
+
 Implement advanced user features including search, filtering, infinite scroll, and enhanced user experience.
 
 ### 📅 **Week 7: Search & Filtering System**
 
 #### **Day 43-46: Search Implementation**
+
 - [ ] **Build SearchBox component** following DESIGN.md search component:
   - Debounced input (300ms delay) with design system styling
   - Search suggestions dropdown using design system colors
@@ -352,6 +378,7 @@ Implement advanced user features including search, filtering, infinite scroll, a
   - Search term highlighting with design system colors
 
 #### **Day 47-49: Advanced Filtering**
+
 - [ ] **Build FilterPanel component** using DESIGN.md styling:
   - Genre multi-select with design system genre tags
   - Release year range picker with design system inputs
@@ -366,6 +393,7 @@ Implement advanced user features including search, filtering, infinite scroll, a
 ### 📅 **Week 8: Enhanced User Experience**
 
 #### **Day 50-53: Infinite Scroll & Performance**
+
 - [ ] **Implement infinite scroll**:
   - Intersection Observer for trigger detection
   - Smooth loading of additional pages
@@ -382,6 +410,7 @@ Implement advanced user features including search, filtering, infinite scroll, a
   - Progressive image enhancement
 
 #### **Day 54-56: Advanced Features**
+
 - [ ] **Build MovieModal component** using DESIGN.md modal styling:
   - Full-screen movie details with design system layout
   - Trailer video player with design system controls
@@ -398,6 +427,7 @@ Implement advanced user features including search, filtering, infinite scroll, a
   - High contrast mode support
 
 ### ✅ **Phase 4 Deliverables**
+
 - [ ] Fully functional search with debouncing and suggestions
 - [ ] Advanced filtering system with multiple criteria
 - [ ] Infinite scroll with performance optimization
@@ -411,11 +441,13 @@ Implement advanced user features including search, filtering, infinite scroll, a
 ## 🧪 Phase 5: Testing & Quality (Week 9-10)
 
 ### 🎯 **Objectives**
+
 Implement comprehensive testing coverage, debugging tools, and quality assurance processes.
 
 ### 📅 **Week 9: Unit & Integration Testing**
 
 #### **Day 57-60: Unit Testing**
+
 - [ ] **Write component tests**:
   - `MovieCard.test.tsx` - rendering, interactions
   - `SearchBox.test.tsx` - debouncing, keyboard events
@@ -430,6 +462,7 @@ Implement comprehensive testing coverage, debugging tools, and quality assurance
   - `validators.test.ts` - input validation logic
 
 #### **Day 61-63: Integration Testing**
+
 - [ ] **API integration tests**:
   - Mock TMDB API responses
   - Test error scenarios (network failures, 404s)
@@ -446,14 +479,18 @@ Implement comprehensive testing coverage, debugging tools, and quality assurance
 ### 📅 **Week 10: Quality Assurance & Debugging**
 
 #### **Day 64-67: Quality Assurance**
+
 - [ ] **Accessibility testing**:
+
   ```bash
   npm install -D @axe-core/react
   ```
+
   - Screen reader compatibility
   - Keyboard navigation
   - Color contrast ratios
   - ARIA attributes validation
+
 - [ ] **Performance testing**:
   - Lighthouse audits (aim for 90+ scores)
   - Bundle size analysis
@@ -461,6 +498,7 @@ Implement comprehensive testing coverage, debugging tools, and quality assurance
   - Memory leak detection
 
 #### **Day 68-70: Cross-platform Testing**
+
 - [ ] **Browser compatibility testing**:
   - Chrome/Chromium (latest 2 versions)
   - Firefox (latest 2 versions)
@@ -473,6 +511,7 @@ Implement comprehensive testing coverage, debugging tools, and quality assurance
 - [ ] **Fix bugs and issues** discovered during testing
 
 ### ✅ **Phase 5 Deliverables**
+
 - [ ] 80%+ test coverage for components and hooks
 - [ ] Comprehensive integration test suite
 - [ ] Accessibility compliance (WCAG 2.1 AA)
@@ -486,11 +525,13 @@ Implement comprehensive testing coverage, debugging tools, and quality assurance
 ## 🚀 Phase 6: Optimization & Deployment (Week 11-12)
 
 ### 🎯 **Objectives**
+
 Optimize for production, implement advanced performance features, and deploy to Netlify with monitoring.
 
 ### 📅 **Week 11: Performance Optimization**
 
 #### **Day 71-74: Bundle Optimization**
+
 - [ ] **Analyze bundle size**:
   ```bash
   npm install -D @rollup/plugin-visualizer
@@ -506,17 +547,21 @@ Optimize for production, implement advanced performance features, and deploy to 
   - Use production builds of dependencies
 
 #### **Day 75-77: Runtime Performance**
+
 - [ ] **Implement React performance optimizations**:
   - `React.memo()` for expensive components
   - `useMemo()` for expensive calculations
   - `useCallback()` for stable function references
 - [ ] **Add service worker** for caching:
+
   ```bash
   npm install -D workbox-build
   ```
+
   - Cache API responses
   - Cache static assets
   - Offline fallback pages
+
 - [ ] **Optimize images and assets**:
   - WebP image format
   - Responsive image sizes
@@ -525,6 +570,7 @@ Optimize for production, implement advanced performance features, and deploy to 
 ### 📅 **Week 12: Production Deployment**
 
 #### **Day 78-81: Netlify Deployment Setup**
+
 - [ ] **Configure production build**:
   - Environment variables for production
   - Production API endpoints
@@ -540,6 +586,7 @@ Optimize for production, implement advanced performance features, and deploy to 
   - Verify environment variables
 
 #### **Day 82-84: Monitoring & Documentation**
+
 - [ ] **Implement error monitoring**:
   - Error boundaries with reporting
   - Client-side error tracking (Sentry optional)
@@ -554,6 +601,7 @@ Optimize for production, implement advanced performance features, and deploy to 
   - SEO optimization check
 
 ### ✅ **Phase 6 Deliverables**
+
 - [ ] Production-optimized build with minimal bundle size
 - [ ] Service worker implementation for offline support
 - [ ] Successful Netlify deployment with custom domain
@@ -567,18 +615,20 @@ Optimize for production, implement advanced performance features, and deploy to 
 ## 📈 Success Metrics
 
 ### 🎯 **Technical Metrics**
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Lighthouse Performance** | 95+ | Chrome DevTools |
-| **Lighthouse Accessibility** | 95+ | Chrome DevTools |
-| **Lighthouse Best Practices** | 95+ | Chrome DevTools |
-| **Lighthouse SEO** | 90+ | Chrome DevTools |
-| **Test Coverage** | 80%+ | Vitest coverage report |
-| **Bundle Size** | <500KB | Bundle analyzer |
-| **First Contentful Paint** | <1.5s | Web Vitals |
-| **Time to Interactive** | <3s | Web Vitals |
+
+| Metric                        | Target | Measurement            |
+| ----------------------------- | ------ | ---------------------- |
+| **Lighthouse Performance**    | 95+    | Chrome DevTools        |
+| **Lighthouse Accessibility**  | 95+    | Chrome DevTools        |
+| **Lighthouse Best Practices** | 95+    | Chrome DevTools        |
+| **Lighthouse SEO**            | 90+    | Chrome DevTools        |
+| **Test Coverage**             | 80%+   | Vitest coverage report |
+| **Bundle Size**               | <500KB | Bundle analyzer        |
+| **First Contentful Paint**    | <1.5s  | Web Vitals             |
+| **Time to Interactive**       | <3s    | Web Vitals             |
 
 ### 📊 **Functional Metrics**
+
 - [ ] **Search functionality** works with debouncing and suggestions
 - [ ] **Filter system** enables multi-criteria movie filtering
 - [ ] **Watchlist** persists across browser sessions
@@ -589,6 +639,7 @@ Optimize for production, implement advanced performance features, and deploy to 
 - [ ] **Accessibility** supports keyboard and screen readers
 
 ### 🏆 **Business Metrics**
+
 - [ ] **Portfolio quality**: Demonstrates modern React expertise
 - [ ] **Code quality**: Clean, maintainable, well-documented code
 - [ ] **User experience**: Intuitive, fast, engaging interface
@@ -603,36 +654,42 @@ Optimize for production, implement advanced performance features, and deploy to 
 ### 🏁 **Major Milestones**
 
 #### **Milestone 1: Foundation Complete (Week 2)**
+
 - ✅ Development environment fully configured
 - ✅ Project structure and tooling established
 - ✅ Basic routing and layout implemented
 - ✅ CI/CD pipeline operational
 
 #### **Milestone 2: Core UI Complete (Week 4)**
+
 - ✅ Design system and component library built
 - ✅ Responsive layouts for all screen sizes
 - ✅ Movie display components functional
 - ✅ Animation and interaction polish applied
 
 #### **Milestone 3: API Integration Complete (Week 6)**
+
 - ✅ TMDB API fully integrated with error handling
 - ✅ State management implemented (Zustand + TanStack Query)
 - ✅ Data fetching hooks and caching operational
 - ✅ Basic movie browsing functionality working
 
 #### **Milestone 4: Advanced Features Complete (Week 8)**
+
 - ✅ Search and filtering system fully functional
 - ✅ Infinite scroll and performance optimizations
 - ✅ Watchlist and theme management working
 - ✅ Enhanced user experience features implemented
 
 #### **Milestone 5: Quality Assurance Complete (Week 10)**
+
 - ✅ Comprehensive testing suite (80%+ coverage)
 - ✅ Accessibility and performance standards met
 - ✅ Cross-browser and device compatibility verified
 - ✅ Bug-free experience across all features
 
 #### **Milestone 6: Production Deployment (Week 12)**
+
 - ✅ Production-optimized build deployed to Netlify
 - ✅ Monitoring and error tracking operational
 - ✅ Documentation complete and up-to-date
@@ -645,16 +702,19 @@ Optimize for production, implement advanced performance features, and deploy to 
 ### 🚨 **High-Risk Areas**
 
 #### **API Integration Challenges**
+
 - **Risk**: TMDB API rate limiting or service downtime
 - **Mitigation**: Implement robust error handling, retry logic, and caching
 - **Contingency**: Mock data fallback for development and testing
 
 #### **Performance Issues**
+
 - **Risk**: Large bundle size or slow loading times
 - **Mitigation**: Regular bundle analysis, code splitting, image optimization
 - **Contingency**: Progressive enhancement and lazy loading strategies
 
 #### **Cross-browser Compatibility**
+
 - **Risk**: Features not working consistently across browsers
 - **Mitigation**: Regular testing on target browsers, polyfill usage
 - **Contingency**: Graceful degradation for unsupported features
@@ -662,16 +722,19 @@ Optimize for production, implement advanced performance features, and deploy to 
 ### ⚡ **Medium-Risk Areas**
 
 #### **TypeScript Complexity**
+
 - **Risk**: Complex typing slowing down development
 - **Mitigation**: Start with basic types, gradually add complexity
 - **Contingency**: Use `any` type judiciously for rapid prototyping
 
 #### **State Management Complexity**
+
 - **Risk**: Over-engineering state management solution
 - **Mitigation**: Start simple with Zustand, add complexity as needed
 - **Contingency**: Fallback to React Context for simpler state needs
 
 #### **Testing Coverage**
+
 - **Risk**: Insufficient test coverage delaying deployment
 - **Mitigation**: Write tests alongside development, not after
 - **Contingency**: Focus on critical path testing first
@@ -689,6 +752,7 @@ Optimize for production, implement advanced performance features, and deploy to 
 ## 📚 Learning Resources
 
 ### 📖 **Essential Reading**
+
 - **🎨 DESIGN.md** - Your complete design system and UI implementation guide
 - **React Official Documentation**: [react.dev](https://react.dev)
 - **TypeScript Handbook**: [typescriptlang.org/docs](https://www.typescriptlang.org/docs)
@@ -697,6 +761,7 @@ Optimize for production, implement advanced performance features, and deploy to 
 - **Zustand Documentation**: [github.com/pmndrs/zustand](https://github.com/pmndrs/zustand)
 
 ### 🎥 **Video Tutorials**
+
 - **React 18 Complete Course**: Modern React patterns and hooks
 - **TypeScript for React Developers**: Type-safe React development
 - **Advanced React Performance**: Optimization techniques and patterns
@@ -704,6 +769,7 @@ Optimize for production, implement advanced performance features, and deploy to 
 - **Building Production React Apps**: Deployment and optimization
 
 ### 🛠️ **Tools & Extensions**
+
 - **VS Code Extensions**:
   - ES7+ React/Redux/React-Native snippets
   - TypeScript Hero
@@ -716,6 +782,7 @@ Optimize for production, implement advanced performance features, and deploy to 
   - Axe DevTools (Accessibility)
 
 ### 🌐 **Community Resources**
+
 - **React Community**: [reactjs.org/community](https://reactjs.org/community)
 - **TypeScript Community**: [typescriptlang.org/community](https://www.typescriptlang.org/community)
 - **Stack Overflow**: React + TypeScript tags

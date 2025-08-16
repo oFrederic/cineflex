@@ -7,7 +7,7 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![CSS Modules](https://img.shields.io/badge/CSS%20Modules-000000?style=for-the-badge&logo=css3&logoColor=white)](https://github.com/css-modules/css-modules)
 
-*A modern, performant movie discovery application built with React, TypeScript, and Vite*
+_A modern, performant movie discovery application built with React, TypeScript, and Vite_
 
 [🚀 Live Demo](#) | [📖 Documentation](./docs/) | [🎨 Design System](./docs/DESIGN.md) | [🗺️ Roadmap](./docs/ROADMAP.md)
 
@@ -38,6 +38,7 @@
 **CineFlex** is a modern movie discovery application built with React 18, TypeScript, and Vite. Browse, search, and explore movies from The Movie Database (TMDB) with a fast, responsive interface inspired by modern streaming platforms.
 
 ### 🎯 Perfect For
+
 - **Learning modern React** development patterns
 - **Building a portfolio** project
 - **Showcasing frontend skills** to employers
@@ -48,6 +49,7 @@
 ## ✨ Features
 
 ### 🎬 Core Features
+
 - **Movie Discovery**: Browse trending, popular, and top-rated movies
 - **Advanced Search**: Real-time search with filters and smart suggestions
 - **Movie Details**: Comprehensive information including cast, crew, reviews
@@ -57,6 +59,7 @@
 - **Theme Support**: Dark/Light theme with system preference detection
 
 ### 🔍 Advanced Features
+
 - **Smart Filtering**: Genre, year, rating, and language filters
 - **Sort Options**: Multiple sorting criteria (popularity, rating, release date)
 - **Movie Trailers**: Integrated video player for trailers and clips
@@ -65,6 +68,7 @@
 - **Offline Support**: Service worker caching for core functionality
 
 ### 🎨 UI/UX Features
+
 - **Modern Interface**: Clean, minimalist design with smooth animations
 - **Loading States**: Skeleton screens and progressive loading
 - **Error Boundaries**: Graceful error handling with recovery options
@@ -77,17 +81,17 @@
 
 ### 🏛️ Technical Stack
 
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| **Build Tool** | Vite 5.0+ | Lightning-fast development and building |
-| **Framework** | React 18+ | Modern UI library with concurrent features |
-| **Language** | TypeScript 5.0+ | Type safety and enhanced developer experience |
-| **Styling** | CSS Modules | Scoped, maintainable styling approach |
-| **State Management** | Zustand | Lightweight, intuitive state management |
-| **Data Fetching** | TanStack Query | Powerful server state management |
-| **Routing** | React Router 6+ | Declarative routing with data loading |
-| **Testing** | Vitest + RTL | Fast, modern testing framework |
-| **Linting** | ESLint + Prettier | Code quality and consistency |
+| Layer                | Technology        | Purpose                                       |
+| -------------------- | ----------------- | --------------------------------------------- |
+| **Build Tool**       | Vite 5.0+         | Lightning-fast development and building       |
+| **Framework**        | React 18+         | Modern UI library with concurrent features    |
+| **Language**         | TypeScript 5.0+   | Type safety and enhanced developer experience |
+| **Styling**          | CSS Modules       | Scoped, maintainable styling approach         |
+| **State Management** | Zustand           | Lightweight, intuitive state management       |
+| **Data Fetching**    | TanStack Query    | Powerful server state management              |
+| **Routing**          | React Router 6+   | Declarative routing with data loading         |
+| **Testing**          | Vitest + RTL      | Fast, modern testing framework                |
+| **Linting**          | ESLint + Prettier | Code quality and consistency                  |
 
 ### 🎯 Key Design Principles
 
@@ -256,9 +260,9 @@ This project includes comprehensive documentation to help you understand, develo
 
 ### 📖 **Available Documentation**
 
-| Document | Purpose | Description |
-|----------|---------|-------------|
-| **[🎨 DESIGN.md](./docs/DESIGN.md)** | Design System | Complete design system with colors, typography, components, and implementation guide |
+| Document                               | Purpose          | Description                                                                          |
+| -------------------------------------- | ---------------- | ------------------------------------------------------------------------------------ |
+| **[🎨 DESIGN.md](./docs/DESIGN.md)**   | Design System    | Complete design system with colors, typography, components, and implementation guide |
 | **[🗺️ ROADMAP.md](./docs/ROADMAP.md)** | Development Plan | 12-week development roadmap with detailed phases, milestones, and learning resources |
 
 ### 🎨 **Design System Documentation**
@@ -268,8 +272,9 @@ This project includes comprehensive documentation to help you understand, develo
 For all design-related decisions, implementation details, and visual guidelines, refer to our comprehensive design system guide:
 
 #### 🎯 **What's in DESIGN.md:**
+
 - **🌈 Complete Color System** - Netflix-inspired dark theme with exact CSS variables
-- **📝 Typography Hierarchy** - Inter font with 4pt-grid based type scale  
+- **📝 Typography Hierarchy** - Inter font with 4pt-grid based type scale
 - **📏 4-Point Spacing System** - Modern, scalable spacing with usage guidelines
 - **🧩 Component Design** - Ready-to-use CSS for movie cards, buttons, search, etc.
 - **📱 Responsive Framework** - Mobile-first breakpoints and grid systems
@@ -277,6 +282,7 @@ For all design-related decisions, implementation details, and visual guidelines,
 - **🎨 Implementation Guide** - Copy-paste CSS and component examples
 
 #### 🚀 **Quick Start:**
+
 1. **Copy the design system CSS** from DESIGN.md
 2. **Follow the 4pt spacing rules** - use only values divisible by 4
 3. **Use the provided color variables** - never hardcode colors
@@ -291,6 +297,7 @@ For all design-related decisions, implementation details, and visual guidelines,
 The roadmap provides a comprehensive 12-week development journey with detailed phases, milestones, and learning resources:
 
 #### 🎯 **What's in ROADMAP.md:**
+
 - **📅 12-Week Timeline** - Detailed development phases and milestones
 - **🏗️ Phase-by-Phase Guide** - Step-by-step development instructions
 - **📊 Success Metrics** - Performance targets and quality standards
@@ -299,6 +306,7 @@ The roadmap provides a comprehensive 12-week development journey with detailed p
 - **🎯 Milestones** - Clear deliverables for each development phase
 
 #### 🚀 **Quick Start:**
+
 1. **Review the roadmap** to understand the development journey
 2. **Follow the phases** in order for best results
 3. **Reference learning resources** when you need help
@@ -332,6 +340,7 @@ npm run test:coverage    # Generate coverage report
 ### 🎯 Development Guidelines
 
 #### Component Development
+
 ```typescript
 // ✅ Good: Well-structured component with TypeScript
 interface MovieCardProps {
@@ -340,22 +349,22 @@ interface MovieCardProps {
   className?: string;
 }
 
-export const MovieCard: React.FC<MovieCardProps> = ({ 
-  movie, 
-  onAddToWatchlist, 
-  className 
+export const MovieCard: React.FC<MovieCardProps> = ({
+  movie,
+  onAddToWatchlist,
+  className
 }) => {
   return (
     <article className={`${styles.card} ${className}`}>
-      <img 
-        src={movie.poster_path} 
+      <img
+        src={movie.poster_path}
         alt={movie.title}
         loading="lazy"
       />
       <div className={styles.content}>
         <h3 className={styles.title}>{movie.title}</h3>
         <p className={styles.overview}>{movie.overview}</p>
-        <button 
+        <button
           onClick={() => onAddToWatchlist(movie.id)}
           className={styles.button}
         >
@@ -368,6 +377,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 ```
 
 #### Hook Development
+
 ```typescript
 // ✅ Good: Custom hook with proper typing and error handling
 export const useMovies = (category: MovieCategory = 'popular') => {
@@ -376,7 +386,7 @@ export const useMovies = (category: MovieCategory = 'popular') => {
     queryFn: () => movieApi.getMovies(category),
     staleTime: 1000 * 60 * 5, // 5 minutes
     retry: 3,
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 };
 ```
@@ -390,12 +400,14 @@ export const useMovies = (category: MovieCategory = 'popular') => {
 The application uses **The Movie Database (TMDB)** API for all movie data:
 
 #### 🔌 API Features
+
 - **Type-safe requests** with TypeScript interfaces
 - **Automatic caching** with TanStack Query
 - **Error handling** with user-friendly fallbacks
 - **Rate limiting** respect for API limits
 
 #### 🔧 API Service Example
+
 ```typescript
 // Custom hook for fetching movies
 export const useMovies = (category: string) => {
@@ -416,6 +428,7 @@ const fetchMovies = async (category: string) => {
 ```
 
 #### 📡 Available Endpoints
+
 - **Popular Movies**: Trending and popular content
 - **Movie Details**: Complete information including cast
 - **Search**: Real-time movie search
@@ -430,6 +443,7 @@ const fetchMovies = async (category: string) => {
 The application includes several performance optimizations:
 
 #### 🎯 Built-in Optimizations
+
 - **Code Splitting**: Automatic route-based splitting with Vite
 - **Image Optimization**: Lazy loading and responsive images
 - **Caching**: Smart API response caching with TanStack Query
@@ -437,11 +451,13 @@ The application includes several performance optimizations:
 - **Modern Format**: ES modules and modern JavaScript
 
 #### 📊 Performance Targets
+
 - **Lighthouse Score**: 90+ on all metrics
 - **First Contentful Paint**: < 2s
 - **Time to Interactive**: < 3s
 
 #### 🔧 Key Implementations
+
 ```typescript
 // Lazy loading pages
 const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
@@ -462,22 +478,26 @@ const MemoizedMovieCard = React.memo(MovieCard);
 The application uses **Vitest** and **React Testing Library** for fast, reliable testing:
 
 #### 🛠️ Testing Stack
+
 - **Vitest**: Modern testing framework
 - **React Testing Library**: Component testing
 - **TypeScript**: Type-safe test development
 
 #### 🎯 Test Coverage
+
 - **Components**: User interactions and rendering
 - **Hooks**: Data fetching and state management
 - **Utilities**: Helper functions and formatters
 
 #### 📝 Running Tests
+
 ```bash
 npm run test              # Run all tests
 npm run test:coverage     # Generate coverage report
 ```
 
 #### Example Component Test
+
 ```typescript
 import { render } from '@testing-library/react';
 import { MovieCard } from './MovieCard';
@@ -488,7 +508,7 @@ test('renders movie information', () => {
     title: 'Test Movie',
     overview: 'Test overview'
   };
-  
+
   const { getByText } = render(<MovieCard movie={movie} />);
   expect(getByText('Test Movie')).toBeInTheDocument();
 });
@@ -503,6 +523,7 @@ test('renders movie information', () => {
 The application is optimized for **Netlify deployment** with zero-configuration setup:
 
 #### 🚀 Why Netlify?
+
 - **Zero-config deployment** from Git repositories
 - **Automatic HTTPS** with custom domain support
 - **Deploy previews** for every pull request
@@ -513,9 +534,11 @@ The application is optimized for **Netlify deployment** with zero-configuration 
 ### 🚀 Quick Netlify Deployment Guide
 
 #### Option 1: One-Click Deploy
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yourusername/cineflex)
 
 #### Option 2: Manual Setup
+
 1. **Push your code** to GitHub
 2. **Visit** [netlify.com](https://app.netlify.com) and sign in
 3. **Click "New site from Git"**
@@ -533,6 +556,7 @@ The application is optimized for **Netlify deployment** with zero-configuration 
 7. **Deploy!** Your site will be live in minutes
 
 #### Automatic Deployment
+
 - **Push to main branch** → Automatic production deployment
 - **Create pull request** → Automatic deploy preview
 - **Push to other branches** → Branch deploy (optional)
@@ -540,6 +564,7 @@ The application is optimized for **Netlify deployment** with zero-configuration 
 ### 🔒 Environment Variables
 
 **Required for Netlify deployment:**
+
 ```bash
 # TMDB API (Required)
 VITE_TMDB_API_KEY=your_tmdb_api_key
@@ -551,6 +576,7 @@ VITE_APP_NAME=CineFlex
 ```
 
 **Where to set them:**
+
 - **Netlify Dashboard**: Site Settings > Environment Variables
 - **Local Development**: Create `.env` file in project root
 
@@ -571,6 +597,7 @@ We welcome contributions to CineFlex! Please follow these guidelines:
 ### 📋 Contribution Guidelines
 
 #### Code Standards
+
 - **TypeScript**: All new code must be written in TypeScript
 - **Testing**: Minimum 80% test coverage for new features
 - **Documentation**: Update README and JSDoc comments
@@ -578,6 +605,7 @@ We welcome contributions to CineFlex! Please follow these guidelines:
 - **Performance**: Consider performance impact of changes
 
 #### Commit Convention
+
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
@@ -592,6 +620,7 @@ refactor: optimize movie grid performance
 ### 🐛 Bug Reports
 
 When reporting bugs, please include:
+
 - Browser and version
 - Steps to reproduce
 - Expected vs actual behavior
@@ -601,6 +630,7 @@ When reporting bugs, please include:
 ### 💡 Feature Requests
 
 For new features, please describe:
+
 - Use case and motivation
 - Proposed solution
 - Alternative approaches considered
