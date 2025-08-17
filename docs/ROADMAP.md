@@ -36,7 +36,7 @@ _A comprehensive 12-week development plan to build a production-ready movie disc
 
 **CineFlex** is a modern, responsive movie discovery application built with React 18, TypeScript, and Vite. This roadmap outlines the complete development journey from initial setup to production deployment on Netlify.
 
-> **📖 IMPORTANT: Design Reference**  
+> **📖 IMPORTANT: Design Reference**
 > **Before starting development, review [DESIGN.md](./DESIGN.md)** - your complete design system guide with colors, typography, spacing, components, and implementation details. All design decisions reference this single source of truth.
 
 ### 🎪 Project Goals
@@ -67,8 +67,8 @@ _A comprehensive 12-week development plan to build a production-ready movie disc
 | **Phase 5** | 2 weeks  | Testing & QA      | Unit tests, integration tests, debugging |
 | **Phase 6** | 2 weeks  | Production        | Performance optimization, deployment     |
 
-**Total Duration**: 12 weeks (3 months)  
-**Effort Level**: 15-20 hours per week  
+**Total Duration**: 12 weeks (3 months)
+**Effort Level**: 15-20 hours per week
 **Skill Level**: Intermediate to Advanced
 
 ---
