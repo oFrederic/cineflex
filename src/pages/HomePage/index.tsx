@@ -1,5 +1,5 @@
-import React from 'react';
 import { ROUTES } from '@/shared/constants/routes';
+import React from 'react';
 
 /**
  * HomePage Component
