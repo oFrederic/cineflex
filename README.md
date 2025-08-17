@@ -310,10 +310,17 @@ This project includes comprehensive documentation to help you understand, develo
 
 ### 📖 **Available Documentation**
 
-| Document                               | Purpose          | Description                                                                          |
-| -------------------------------------- | ---------------- | ------------------------------------------------------------------------------------ |
-| **[🎨 DESIGN.md](./docs/DESIGN.md)**   | Design System    | Complete design system with colors, typography, components, and implementation guide |
-| **[🗺️ ROADMAP.md](./docs/ROADMAP.md)** | Development Plan | 12-week development roadmap with detailed phases, milestones, and learning resources |
+| Document                                       | Purpose              | Description                                                                          |
+| ---------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------ |
+| **[🎨 DESIGN.md](./docs/DESIGN.md)**           | Design System        | Complete design system with colors, typography, components, and implementation guide |
+| **[🗺️ ROADMAP.md](./docs/ROADMAP.md)**         | Development Plan     | 12-week development roadmap with detailed phases, milestones, and learning resources |
+| **[📡 API.md](./docs/API.md)**                 | API Integration      | TMDB API integration guide, endpoints, patterns, and best practices                  |
+| **[🌍 ENVIRONMENT.md](./docs/ENVIRONMENT.md)** | Environment Setup    | Environment configuration, setup procedures, and troubleshooting                     |
+| **[🧩 COMPONENTS.md](./docs/COMPONENTS.md)**   | Component Library    | Component usage, props, patterns, and accessibility guidelines                       |
+| **[🗃️ STATE.md](./docs/STATE.md)**             | State Management     | Zustand stores, TanStack Query patterns, and state management strategies             |
+| **[🧪 TESTING.md](./docs/TESTING.md)**         | Testing Strategy     | Testing patterns, component testing, and quality assurance                           |
+| **[⚡ PERFORMANCE.md](./docs/PERFORMANCE.md)** | Performance Guide    | Optimization techniques, bundle analysis, and monitoring tools                       |
+| **[🔄 WORKFLOW.md](./docs/WORKFLOW.md)**       | Development Workflow | Git workflow, code review process, and deployment pipeline                           |
 
 ### 🎨 **Design System Documentation**
 
@@ -363,6 +370,16 @@ The roadmap provides a comprehensive 12-week development journey with detailed p
 4. **Track your progress** against the milestones
 
 **💡 Development Philosophy**: Structured, incremental development with clear goals and measurable outcomes.
+
+### 📚 **Complete Documentation Suite**
+
+All documentation follows consistent formatting and includes practical examples. Each guide provides:
+
+- **🎯 Clear Purpose** - What the document covers and when to use it
+- **📝 Practical Examples** - Code snippets and implementation patterns
+- **🔧 Best Practices** - Recommended approaches and conventions
+- **🚨 Troubleshooting** - Common issues and solutions
+- **📚 Additional Resources** - Links to external documentation and tools
 
 ---
 
