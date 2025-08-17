@@ -38,5 +38,17 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src/components/**/*",
+    "src/features/**/*",
+    "src/pages/**/*",
+    "src/shared/**/*",
+    "src/styles/**/*",
+    "src/assets/**/*",
+    "src/types/**/*",
+    "src/utils/**/*",
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/vite-env.d.ts"
+  ]
 }
