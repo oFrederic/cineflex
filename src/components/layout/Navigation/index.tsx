@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
 import { NAVIGATION_ITEMS } from '@/shared/constants/routes';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 /**

@@ -1,11 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Components
 import Navigation from '@/components/layout/Navigation';
+
+// Pages
 import HomePage from '@/pages/HomePage';
-import MovieDetailsPage from '@/pages/MovieDetailsPage';
 import MoviesPage from '@/pages/MoviesPage';
+import MovieDetailsPage from '@/pages/MovieDetailsPage';
 import SearchPage from '@/pages/SearchPage';
 import WatchlistPage from '@/pages/WatchlistPage';
+
+// Constants
 import { ROUTES } from '@/shared/constants/routes';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+// Styles
 import './App.css';
 
 function App() {
