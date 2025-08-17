@@ -1,4 +1,5 @@
 import React from 'react';
+import { ROUTES } from '@/shared/constants/routes';
 
 /**
  * HomePage Component
@@ -9,6 +10,7 @@ export const HomePage: React.FC = () => {
     <div>
       <h1>Welcome to CineFlex</h1>
       <p>Discover amazing movies and TV shows</p>
+      <p>Current route: {ROUTES.HOME}</p>
     </div>
   );
 };
