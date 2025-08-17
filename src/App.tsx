@@ -1,34 +1,27 @@
-import { useState } from 'react';
+import Navigation from '@/components/layout/Navigation';
+import HomePage from '@/pages/HomePage';
+import MovieDetailsPage from '@/pages/MovieDetailsPage';
+import MoviesPage from '@/pages/MoviesPage';
+import SearchPage from '@/pages/SearchPage';
+import WatchlistPage from '@/pages/WatchlistPage';
+import { ROUTES } from '@/shared/constants/routes';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+    <Router>
+      <div className='app'>
+        <Navigation />
+        <Routes>
+          <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
+          <Route path={ROUTES.MOVIE_DETAILS} element={<MovieDetailsPage />} />
+          <Route path={ROUTES.SEARCH} element={<SearchPage />} />
+          <Route path={ROUTES.WATCHLIST} element={<WatchlistPage />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   );
 }
 
