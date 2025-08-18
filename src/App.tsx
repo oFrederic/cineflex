@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 // Components
-import Navigation from '@/components/layout/Navigation';
+import MainLayout from '@/components/layout/MainLayout';
 
 // Pages
 import HomePage from '@/pages/HomePage';
@@ -19,8 +19,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className='app'>
-        <Navigation />
+      <MainLayout>
         <Routes>
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
@@ -28,7 +27,7 @@ function App() {
           <Route path={ROUTES.SEARCH} element={<SearchPage />} />
           <Route path={ROUTES.WATCHLIST} element={<WatchlistPage />} />
         </Routes>
-      </div>
+      </MainLayout>
     </Router>
   );
 }

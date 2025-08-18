@@ -123,7 +123,7 @@ export interface CacheItem<T> {
 // Event types
 export interface AppEvent {
   type: string;
-  payload?: any;
+  payload?: unknown;
   timestamp: number;
 }
 

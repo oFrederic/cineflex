@@ -63,7 +63,10 @@ const localStorageMock = {
   length: 0,
   key: vi.fn(),
 } as Storage;
-global.localStorage = localStorageMock;
+Object.defineProperty(global, 'localStorage', {
+  configurable: true,
+  value: localStorageMock,
+});
 
 // Mock sessionStorage
 const sessionStorageMock = {
@@ -74,40 +77,52 @@ const sessionStorageMock = {
   length: 0,
   key: vi.fn(),
 } as Storage;
-global.sessionStorage = sessionStorageMock;
+Object.defineProperty(global, 'sessionStorage', {
+  configurable: true,
+  value: sessionStorageMock,
+});
 
 // Mock fetch
 global.fetch = vi.fn();
 
 // Mock console methods in tests
+// eslint-disable-next-line no-console
 const originalError = console.error;
+// eslint-disable-next-line no-console
 const originalWarn = console.warn;
 
-beforeAll(() => {
-  console.error = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: ReactDOM.render is no longer supported')
-    ) {
-      return;
-    }
-    originalError.call(console, ...args);
-  };
+let errorSpy: ReturnType<typeof vi.spyOn>;
+let warnSpy: ReturnType<typeof vi.spyOn>;
 
-  console.warn = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: componentWillReceiveProps has been renamed')
-    ) {
-      return;
-    }
-    originalWarn.call(console, ...args);
-  };
+beforeAll(() => {
+  errorSpy = vi
+    .spyOn(console, 'error')
+    .mockImplementation((...args: Parameters<typeof console.error>) => {
+      if (
+        typeof args[0] === 'string' &&
+        args[0].includes('Warning: ReactDOM.render is no longer supported')
+      ) {
+        return;
+      }
+      originalError(...args);
+    });
+
+  warnSpy = vi
+    .spyOn(console, 'warn')
+    .mockImplementation((...args: Parameters<typeof console.warn>) => {
+      if (
+        typeof args[0] === 'string' &&
+        args[0].includes('Warning: componentWillReceiveProps has been renamed')
+      ) {
+        return;
+      }
+      originalWarn(...args);
+    });
 });
 
 afterAll(() => {
-  console.error = originalError;
-  console.warn = originalWarn;
+  errorSpy.mockRestore();
+  warnSpy.mockRestore();
 });
 
 // Clean up after each test

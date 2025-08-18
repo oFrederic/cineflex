@@ -1,6 +1,2 @@
-.app {
-  min-height: 100vh;
-  width: 100%;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-}
+/* App-level styles are now handled by MainLayout */
+/* This file can be used for global app-specific styles if needed */
