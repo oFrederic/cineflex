@@ -1,6 +1,9 @@
 import { ROUTES } from '@/shared/constants/routes';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocalStorage } from '@/shared/hooks';
+import { validateSearchQuery } from '@/shared/utils';
+import { SEARCH, STORAGE_KEYS } from '@/shared/utils/constants';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 
 /**
@@ -8,24 +11,49 @@ import styles from './Header.module.css';
  * Main application header with logo, search, and theme toggle
  */
 export const Header: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Theme management with localStorage persistence
+  const [theme, setTheme] = useLocalStorage<'light' | 'dark'>(
+    STORAGE_KEYS.THEME,
+    'dark'
+  );
+
+  // Search functionality with debouncing
   const [searchQuery, setSearchQuery] = useState('');
-  const [isThemeDark, setIsThemeDark] = useState(true);
+  // TODO: Implement debounced search for API integration
+  // const debouncedSearchQuery = useSearchDebounce(searchQuery, SEARCH.DEBOUNCE_DELAY);
+
+  // Search history management
+  const [searchHistory, setSearchHistory] = useLocalStorage<string[]>(
+    STORAGE_KEYS.SEARCH_HISTORY,
+    []
+  );
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      // TODO: Implement search functionality
-      // eslint-disable-next-line no-console
-      console.log('Search for:', searchQuery);
+    if (searchQuery.trim() && validateSearchQuery(searchQuery)) {
+      // Add to search history
+      const newHistory = [
+        searchQuery.trim(),
+        ...searchHistory.filter(item => item !== searchQuery.trim()),
+      ].slice(0, SEARCH.MAX_HISTORY_ITEMS);
+
+      setSearchHistory(newHistory);
+
+      // Navigate to search page with query
+      navigate(`${ROUTES.SEARCH}?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 
+  // Initialize theme on component mount
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   const toggleTheme = () => {
-    setIsThemeDark(!isThemeDark);
-    document.documentElement.setAttribute(
-      'data-theme',
-      isThemeDark ? 'light' : 'dark'
-    );
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
   };
 
   return (
@@ -54,9 +82,9 @@ export const Header: React.FC = () => {
         <button
           onClick={toggleTheme}
           className={styles.themeToggle}
-          aria-label={`Switch to ${isThemeDark ? 'light' : 'dark'} theme`}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
         >
-          {isThemeDark ? '☀️' : '🌙'}
+          {theme === 'dark' ? '☀️' : '🌙'}
         </button>
       </div>
     </header>
