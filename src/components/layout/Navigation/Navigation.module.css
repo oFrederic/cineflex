@@ -55,29 +55,6 @@
   border-radius: 1px;
 }
 
-/* Mobile Menu Button */
-.mobileMenuButton {
-  display: none;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  padding: var(--space-2);
-  color: var(--text-primary);
-  cursor: pointer;
-  font-size: var(--text-lg);
-  transition: all 0.2s ease;
-  min-width: 44px;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobileMenuButton:hover {
-  background: var(--surface-hover);
-  border-color: var(--text-secondary);
-  transform: scale(1.05);
-}
-
 /* Links Container */
 .links {
   display: flex;
@@ -85,38 +62,21 @@
   gap: var(--space-2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .mobileMenuButton {
-    display: flex;
-  }
-
-  .links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--surface-border);
-    flex-direction: column;
-    padding: var(--space-4);
-    gap: var(--space-2);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-  }
-
-  .links.menuOpen {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+/* Responsive Design - Only for tablet adjustments */
+@media (max-width: 1024px) {
+  .container {
+    gap: var(--space-4);
   }
 
   .link {
-    width: 100%;
-    text-align: center;
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navigation is hidden on mobile, so no mobile styles needed */
+  .nav {
+    display: none;
   }
 }

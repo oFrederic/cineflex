@@ -8,7 +8,7 @@ import styles from './Header.module.css';
 
 /**
  * Header Component
- * Main application header with logo, search, and theme toggle
+ * Main application header with logo, search, theme toggle, and mobile navigation
  */
 export const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -18,6 +18,9 @@ export const Header: React.FC = () => {
     STORAGE_KEYS.THEME,
     'dark'
   );
+
+  // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Search functionality with debouncing
   const [searchQuery, setSearchQuery] = useState('');
@@ -56,6 +59,14 @@ export const Header: React.FC = () => {
     setTheme(newTheme);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -78,15 +89,63 @@ export const Header: React.FC = () => {
           </button>
         </form>
 
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className={styles.themeToggle}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-        >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
+        {/* Right Side Controls */}
+        <div className={styles.controls}>
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className={styles.themeToggle}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className={styles.mobileMenuButton}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className={styles.mobileMenu}>
+          <nav className={styles.mobileNav}>
+            <Link
+              to={ROUTES.HOME}
+              className={styles.mobileNavLink}
+              onClick={closeMobileMenu}
+            >
+              Home
+            </Link>
+            <Link
+              to={ROUTES.MOVIES}
+              className={styles.mobileNavLink}
+              onClick={closeMobileMenu}
+            >
+              Movies
+            </Link>
+            <Link
+              to={ROUTES.SEARCH}
+              className={styles.mobileNavLink}
+              onClick={closeMobileMenu}
+            >
+              Search
+            </Link>
+            <Link
+              to={ROUTES.WATCHLIST}
+              className={styles.mobileNavLink}
+              onClick={closeMobileMenu}
+            >
+              Watchlist
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
