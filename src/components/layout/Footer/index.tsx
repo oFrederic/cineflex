@@ -1,4 +1,7 @@
 import { ROUTES } from '@/shared/constants/routes';
+import { useLocalStorage, useMediaQuery } from '@/shared/hooks';
+import { STORAGE_KEYS } from '@/shared/utils/constants';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
@@ -9,26 +12,72 @@ import styles from './Footer.module.css';
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  // Check if device is mobile/tablet (screen width < 1024px)
+  const isMobileOrTablet = useMediaQuery('(max-width: 1023px)');
+
+  // Get initial state from localStorage or default based on screen size
+  const [isContentVisible, setIsContentVisible] = useLocalStorage<boolean>(
+    STORAGE_KEYS.FOOTER_EXPANDED,
+    !isMobileOrTablet // true on desktop, false on mobile/tablet
+  );
+
+  // Only set initial state once when component mounts or screen size changes
+  useEffect(() => {
+    // If no value is stored in localStorage, set the default based on screen size
+    const storedValue = localStorage.getItem(STORAGE_KEYS.FOOTER_EXPANDED);
+    if (storedValue === null) {
+      setIsContentVisible(!isMobileOrTablet);
+    }
+  }, [isMobileOrTablet, setIsContentVisible]);
+
+  const toggleContent = () => {
+    setIsContentVisible(!isContentVisible);
+  };
+
   return (
-    <footer className={styles.footer}>
+    <footer
+      className={`${styles.footer} ${!isContentVisible ? styles.collapsed : ''}`}
+    >
       <div className={styles.container}>
-        {/* Main Footer Content */}
-        <div className={styles.content}>
+        {/* Toggle Button - Only show on mobile/tablet */}
+        {isMobileOrTablet && (
+          <div className={styles.toggleContainer}>
+            <button
+              onClick={toggleContent}
+              className={styles.toggleButton}
+              aria-label={
+                isContentVisible ? 'Hide footer content' : 'Show footer content'
+              }
+            >
+              {isContentVisible ? '▼' : '▲'}
+            </button>
+          </div>
+        )}
+
+        {/* Content Section - Collapsible on mobile/tablet */}
+        <div
+          className={`${styles.content} ${!isContentVisible ? styles.hidden : ''}`}
+        >
           {/* Brand Section */}
           <div className={styles.brandSection}>
             <Link to={ROUTES.HOME} className={styles.logo}>
               <span className={styles.logoText}>CineFlex</span>
             </Link>
             <p className={styles.tagline}>
-              Discover amazing movies and TV shows
+              Discover your next favorite movie with our comprehensive database
             </p>
           </div>
 
           {/* Links Section */}
           <div className={styles.linksSection}>
             <div className={styles.linkGroup}>
-              <h3 className={styles.linkTitle}>Explore</h3>
+              <h3 className={styles.linkTitle}>Navigation</h3>
               <ul className={styles.linkList}>
+                <li>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link to={ROUTES.MOVIES} className={styles.link}>
                     Movies
@@ -48,50 +97,60 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className={styles.linkGroup}>
-              <h3 className={styles.linkTitle}>About</h3>
+              <h3 className={styles.linkTitle}>Resources</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <a href='#' className={styles.link}>
-                    About Us
-                  </a>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className={styles.link}>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Help
+                  </Link>
+                </li>
+                <li>
+                  <Link to={ROUTES.HOME} className={styles.link}>
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className={styles.link}>
-                    Privacy Policy
-                  </a>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Privacy
+                  </Link>
                 </li>
               </ul>
             </div>
 
             <div className={styles.linkGroup}>
-              <h3 className={styles.linkTitle}>Support</h3>
+              <h3 className={styles.linkTitle}>Legal</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <a href='#' className={styles.link}>
-                    Help Center
-                  </a>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Terms
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className={styles.link}>
-                    API Documentation
-                  </a>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className={styles.link}>
-                    Report Issue
-                  </a>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to={ROUTES.HOME} className={styles.link}>
+                    GDPR
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Bottom Section - Always visible */}
         <div className={styles.bottomSection}>
           <div className={styles.copyright}>
             <p className={styles.copyrightText}>
@@ -110,32 +169,25 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Social Links */}
           <div className={styles.socialLinks}>
             <a
-              href='https://github.com'
-              target='_blank'
-              rel='noopener noreferrer'
+              href='#'
               className={styles.socialLink}
-              aria-label='GitHub'
-            >
-              📱
-            </a>
-            <a
-              href='https://twitter.com'
-              target='_blank'
-              rel='noopener noreferrer'
-              className={styles.socialLink}
-              aria-label='Twitter'
+              aria-label='Follow us on Twitter'
             >
               🐦
             </a>
             <a
-              href='https://linkedin.com'
-              target='_blank'
-              rel='noopener noreferrer'
+              href='#'
               className={styles.socialLink}
-              aria-label='LinkedIn'
+              aria-label='Follow us on Instagram'
+            >
+              📷
+            </a>
+            <a
+              href='#'
+              className={styles.socialLink}
+              aria-label='Follow us on LinkedIn'
             >
               💼
             </a>

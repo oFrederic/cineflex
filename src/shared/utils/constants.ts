@@ -21,6 +21,7 @@ export const STORAGE_KEYS = {
   USER_PREFERENCES: 'cineflex-user-preferences',
   AUTH_TOKEN: 'cineflex-auth-token',
   LAST_VISITED: 'cineflex-last-visited',
+  FOOTER_EXPANDED: 'cineflex-footer-expanded',
 } as const;
 
 // Error Messages
