@@ -43,20 +43,19 @@
 
 /* Search Container */
 .searchContainer {
-  position: relative;
   flex: 1;
-  max-width: 500px;
-  margin: 0 var(--space-6);
+  max-width: 400px;
+  position: relative;
 }
 
 .searchInput {
   width: 100%;
-  background: var(--bg-tertiary);
+  padding: var(--space-3) var(--space-4);
   border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-12);
-  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
+  font-size: var(--text-base);
   transition: all 0.2s ease;
   font-family: var(--font-primary);
 }
@@ -64,40 +63,14 @@
 .searchInput:focus {
   outline: none;
   border-color: var(--accent-red);
-  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+  box-shadow: 0 0 0 2px var(--accent-red-alpha);
 }
 
 .searchInput::placeholder {
   color: var(--text-tertiary);
 }
 
-.searchButton {
-  position: absolute;
-  left: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--text-tertiary);
-  cursor: pointer;
-  font-size: var(--text-lg);
-  padding: var(--space-2);
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.searchButton:hover {
-  color: var(--accent-red);
-  background: var(--surface-hover);
-  transform: translateY(-50%) scale(1.1);
-}
-
-/* Controls Container */
+/* Controls */
 .controls {
   display: flex;
   align-items: center;
@@ -108,24 +81,23 @@
 .themeToggle {
   background: var(--bg-tertiary);
   border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  padding: var(--space-3);
-  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  color: var(--text-secondary);
   cursor: pointer;
   font-size: var(--text-lg);
   transition: all 0.2s ease;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-primary);
 }
 
 .themeToggle:hover {
   background: var(--surface-hover);
-  border-color: var(--text-secondary);
-  transform: scale(1.05);
+  color: var(--text-primary);
+  transform: scale(1.1);
 }
 
 .themeToggle:focus {
@@ -133,128 +105,187 @@
   outline-offset: 2px;
 }
 
-/* Mobile Menu Button */
-.mobileMenuButton {
-  display: none;
+/* Hamburger Menu */
+.hamburger {
   background: var(--bg-tertiary);
   border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  padding: var(--space-3);
-  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  color: var(--text-secondary);
   cursor: pointer;
-  font-size: var(--text-lg);
   transition: all 0.2s ease;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
+  display: none;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-primary);
+  gap: 2px;
 }
 
-.mobileMenuButton:hover {
+.hamburger:hover {
   background: var(--surface-hover);
-  border-color: var(--text-secondary);
-  transform: scale(1.05);
+  color: var(--text-primary);
 }
 
-.mobileMenuButton:focus {
+.hamburger:focus {
   outline: 2px solid var(--accent-red);
   outline-offset: 2px;
 }
 
-/* Mobile Menu */
-.mobileMenu {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--surface-border);
-  padding: var(--space-4);
-  box-shadow: var(--shadow-md);
+.hamburgerLine {
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: all 0.3s ease;
 }
 
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-xl);
+  z-index: 2001;
+  animation: slideInRight 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-4);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.mobileMenuHeader h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  font-family: var(--font-primary);
+}
+
+.closeButton {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: var(--text-lg);
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.closeButton:focus {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* Mobile Navigation */
 .mobileNav {
+  flex: 1;
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
 }
 
 .mobileNavLink {
-  text-decoration: none;
+  display: block;
+  padding: var(--space-4);
   color: var(--text-secondary);
-  font-size: var(--text-base);
+  text-decoration: none;
+  font-size: var(--text-lg);
   font-weight: var(--font-medium);
-  padding: var(--space-3) var(--space-4);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   transition: all 0.2s ease;
   font-family: var(--font-primary);
 }
 
 .mobileNavLink:hover {
-  color: var(--text-primary);
   background: var(--surface-hover);
+  color: var(--text-primary);
   transform: translateX(4px);
 }
 
 .mobileNavLink:focus {
   outline: 2px solid var(--accent-red);
   outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 var(--space-3);
-    gap: var(--space-4);
-  }
-
-  .searchContainer {
-    max-width: 300px;
-    margin: 0 var(--space-3);
-  }
-
-  .logoText {
-    font-size: var(--text-xl);
-  }
-
-  /* Show mobile menu button on tablet and mobile */
-  .mobileMenuButton {
+@media (max-width: 767px) {
+  .hamburger {
     display: flex;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .searchContainer {
     max-width: 200px;
-    margin: 0 var(--space-2);
   }
 
-  .logoText {
-    font-size: var(--text-lg);
+  .container {
+    gap: var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
-  .logoText {
-    font-size: var(--text-xl);
+  .searchContainer {
+    max-width: 150px;
   }
 
-  .searchInput {
-    padding: var(--space-2) var(--space-3) var(--space-2) var(--space-10);
-    font-size: var(--text-sm);
-  }
-
-  .searchButton {
-    left: var(--space-3);
-    font-size: var(--text-base);
-  }
-
-  .controls {
-    gap: var(--space-2);
-  }
-
-  .themeToggle,
-  .mobileMenuButton {
-    min-width: 40px;
-    min-height: 40px;
-    padding: var(--space-2);
-    font-size: var(--text-base);
+  .mobileMenu {
+    width: 100vw;
   }
 }
