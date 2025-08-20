@@ -355,33 +355,6 @@ export const HomePage: React.FC = () => {
               ))}
             </Grid>
           </div>
-
-          {/* MovieCard with Custom Content */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>MovieCard with Custom Children</h3>
-            <Grid variant='movie' gap='md'>
-              {sampleMovies.slice(0, 3).map(movie => (
-                <GridItem key={movie.id}>
-                  <MovieCard
-                    movie={movie}
-                    onAddToWatchlist={movieId => {
-                      // eslint-disable-next-line no-console
-                      console.log(`Added movie ${movieId} to watchlist`);
-                    }}
-                  >
-                    <div className='flex gap-2 mt-2'>
-                      <span className='text-xs bg-accent-red text-white px-2 py-1 rounded'>
-                        Action
-                      </span>
-                      <span className='text-xs bg-surface-border text-text-secondary px-2 py-1 rounded'>
-                        Adventure
-                      </span>
-                    </div>
-                  </MovieCard>
-                </GridItem>
-              ))}
-            </Grid>
-          </div>
         </section>
 
         {/* MovieGrid Showcase */}

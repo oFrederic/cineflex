@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { useResponsiveValue } from '@/shared/hooks/useMediaQuery';
 import styles from './MovieCard.module.css';
 
@@ -17,7 +16,6 @@ export interface MovieCardProps {
   onAddToWatchlist?: (movieId: number) => void;
   onMovieClick?: (movieId: number) => void;
   className?: string;
-  children?: ReactNode;
   'data-testid'?: string;
 }
 
@@ -34,7 +32,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   onAddToWatchlist,
   onMovieClick,
   className = '',
-  children,
   'data-testid': dataTestId,
 }) => {
   // Use responsive hooks for dynamic styling
@@ -157,9 +154,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({
             <span>{formatRating(movie.vote_average)}</span>
           </div>
         </div>
-
-        {/* Custom children content */}
-        {children && <div className={styles.children}>{children}</div>}
       </div>
     </article>
   );

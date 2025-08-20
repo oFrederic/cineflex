@@ -160,11 +160,6 @@
   flex-shrink: 0;
 }
 
-/* Children content area */
-.children {
-  margin-top: var(--space-2);
-}
-
 /* Loading State */
 .movieCard.loading {
   pointer-events: none;
