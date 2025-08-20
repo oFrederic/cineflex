@@ -4,6 +4,7 @@ import {
   GridItem,
   Input,
   MovieCard,
+  MovieDetails,
   MovieGrid,
   Skeleton,
   SkeletonCard,
@@ -76,6 +77,112 @@ const sampleMovies = [
       'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.',
   },
 ];
+
+// Sample movie details data for showcase
+const sampleMovieDetails = {
+  ...sampleMovies[0], // Use Inception as base
+  overview:
+    'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+  runtime: 148,
+  genres: [
+    { id: 28, name: 'Action' },
+    { id: 878, name: 'Science Fiction' },
+    { id: 53, name: 'Thriller' },
+  ],
+  cast: [
+    {
+      id: 1,
+      name: 'Leonardo DiCaprio',
+      character: 'Cobb',
+      profile_path: '/9U9Y5GQuWX3EZy39B8nkv4N3b2b.jpg',
+      order: 0,
+    },
+    {
+      id: 2,
+      name: 'Joseph Gordon-Levitt',
+      character: 'Arthur',
+      profile_path: '/4mOkN9uWMe6UZ9VKqZfdqMsdEDq.jpg',
+      order: 1,
+    },
+    {
+      id: 3,
+      name: 'Ellen Page',
+      character: 'Ariadne',
+      profile_path: '/8i6ZDkX1TQaXqXkXqXkXqXkXqXk.jpg',
+      order: 2,
+    },
+    {
+      id: 4,
+      name: 'Tom Hardy',
+      character: 'Eames',
+      profile_path: '/oP3A0NaJShM9BbM5SaKNfISjN.jpg',
+      order: 3,
+    },
+    {
+      id: 5,
+      name: 'Ken Watanabe',
+      character: 'Saito',
+      profile_path: '/6a6cl3sOQjqXqXkXqXkXqXkXqXk.jpg',
+      order: 4,
+    },
+    {
+      id: 6,
+      name: 'Dileep Rao',
+      character: 'Yusuf',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+      order: 5,
+    },
+  ],
+  crew: [
+    {
+      id: 1,
+      name: 'Christopher Nolan',
+      job: 'Director',
+      department: 'Directing',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+    },
+    {
+      id: 2,
+      name: 'Christopher Nolan',
+      job: 'Writer',
+      department: 'Writing',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+    },
+    {
+      id: 3,
+      name: 'Emma Thomas',
+      job: 'Producer',
+      department: 'Production',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+    },
+    {
+      id: 4,
+      name: 'Hans Zimmer',
+      job: 'Original Music Composer',
+      department: 'Sound',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+    },
+    {
+      id: 5,
+      name: 'Wally Pfister',
+      job: 'Director of Photography',
+      department: 'Camera',
+      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
+    },
+  ],
+  similar_movies: sampleMovies.slice(1, 4), // Use other sample movies
+  backdrop_path: '/s3TBrRGB1iav7gFOCNx3H31MoES.jpg',
+  tagline: 'Your mind is the scene of the crime.',
+  budget: 160000000,
+  revenue: 836836967,
+  status: 'Released',
+  original_language: 'en',
+  production_companies: [
+    { id: 1, name: 'Warner Bros. Pictures', logo_path: null },
+    { id: 2, name: 'Legendary Entertainment', logo_path: null },
+    { id: 3, name: 'Syncopy', logo_path: null },
+  ],
+};
 
 /**
  * HomePage Component
@@ -314,6 +421,32 @@ export const HomePage: React.FC = () => {
                 Browse Popular Movies
               </Button>
             </MovieGrid>
+          </div>
+        </section>
+
+        {/* MovieDetails Showcase */}
+        <section className='mb-12'>
+          <h2 className='heading-3 mb-6'>MovieDetails Component</h2>
+          <p className='body-large mb-6'>
+            MovieDetails component following DESIGN.md specifications with hero
+            section, information tabs, and cast/crew sections.
+          </p>
+
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>
+              MovieDetails with Hero Section and Tabs
+            </h3>
+            <MovieDetails
+              movie={sampleMovieDetails}
+              onAddToWatchlist={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Added movie ${movieId} to watchlist`);
+              }}
+              onMovieClick={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Clicked on movie ${movieId}`);
+              }}
+            />
           </div>
         </section>
 
