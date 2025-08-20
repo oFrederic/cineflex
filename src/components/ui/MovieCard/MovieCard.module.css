@@ -100,8 +100,9 @@
   height: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
+  min-height: 0; /* Allow content to shrink */
+  position: relative; /* For absolute positioning of meta */
 }
 
 /* Title */
@@ -114,7 +115,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4); /* Increased margin to create more space */
+  flex-shrink: 0; /* Prevent title from shrinking */
+  max-height: calc(1.2em * 2); /* Allow up to 2 lines if needed */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  -webkit-box-orient: vertical;
+  white-space: normal; /* Allow wrapping for very long titles */
+  padding-bottom: var(--space-2); /* Additional padding to ensure separation */
 }
 
 /* Meta Information */
@@ -122,7 +130,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  position: absolute; /* Position at bottom of content area */
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  flex-shrink: 0; /* Prevent meta from shrinking */
+  min-height: 1.2em; /* Ensure minimum height for meta */
+  background: var(--bg-secondary); /* Ensure background matches */
+  z-index: 1; /* Ensure meta stays on top */
 }
 
 .year {
@@ -183,10 +198,19 @@
 
   .content {
     padding: var(--space-2);
+    min-height: 60px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-xs);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-1);
+  }
+
+  .meta {
+    bottom: var(--space-2);
+    left: var(--space-2);
+    right: var(--space-2);
   }
 
   .year,
@@ -212,10 +236,19 @@
 
   .content {
     padding: var(--space-3);
+    min-height: 70px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-sm);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-1);
+  }
+
+  .meta {
+    bottom: var(--space-3);
+    left: var(--space-3);
+    right: var(--space-3);
   }
 
   .year,
@@ -231,10 +264,19 @@
 
   .content {
     padding: var(--space-3);
+    min-height: 80px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-sm);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+  }
+
+  .meta {
+    bottom: var(--space-3);
+    left: var(--space-3);
+    right: var(--space-3);
   }
 
   .year,
@@ -250,10 +292,19 @@
 
   .content {
     padding: var(--space-4);
+    min-height: 90px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+
+  .meta {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
   }
 
   .year,
@@ -269,10 +320,19 @@
 
   .content {
     padding: var(--space-4);
+    min-height: 90px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+
+  .meta {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
   }
 
   .year,
@@ -288,10 +348,19 @@
 
   .content {
     padding: var(--space-4);
+    min-height: 90px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+
+  .meta {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
   }
 
   .year,
@@ -307,10 +376,19 @@
 
   .content {
     padding: var(--space-4);
+    min-height: 100px; /* Ensure minimum content height */
   }
 
   .title {
     font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+
+  .meta {
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
   }
 
   .year,
