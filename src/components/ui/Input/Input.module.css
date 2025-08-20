@@ -1,0 +1,150 @@
+/* Input Component Styles - Netflix-inspired design */
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  transition: all 0.2s var(--ease-out);
+  outline: none;
+  line-height: var(--leading-normal);
+}
+
+/* Search input specific styling */
+.input--search {
+  padding-left: var(--space-12);
+}
+
+/* Focus state */
+.input--focused {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+
+/* Error state */
+.input--error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+}
+
+.input--error:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+}
+
+/* Disabled state */
+.input--disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.input--disabled:hover {
+  border-color: var(--surface-border);
+}
+
+/* Placeholder styling */
+.input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: var(--font-normal);
+}
+
+/* Search icon */
+.searchIcon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.input--focused + .searchIcon,
+.input--focused ~ .searchIcon {
+  color: var(--accent-red);
+}
+
+/* Error message */
+.error {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--error);
+  font-weight: var(--font-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.error::before {
+  content: '⚠';
+  font-size: var(--text-xs);
+}
+
+/* Focus visible for accessibility */
+.input:focus-visible {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+
+/* Hover state */
+.input:hover:not(:disabled):not(.input--error) {
+  border-color: var(--text-secondary);
+}
+
+/* Autofill styling */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px var(--bg-secondary) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  border-color: var(--accent-red) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .input {
+    font-size: var(--text-base);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .input--search {
+    padding-left: var(--space-10);
+  }
+
+  .searchIcon {
+    left: var(--space-3);
+  }
+}
+
+/* Number input specific styling */
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.input[type='number']::-webkit-outer-spin-button,
+.input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Password input specific styling */
+.input[type='password'] {
+  letter-spacing: 0.1em;
+}

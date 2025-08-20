@@ -1,0 +1,168 @@
+/* Button Component Styles - Netflix-inspired design */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Primary Button (Netflix Red) */
+.button--primary {
+  background: var(--accent-red);
+  color: var(--text-primary);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--accent-red-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-red);
+}
+
+.button--primary:active:not(:disabled) {
+  background: var(--accent-red-pressed);
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.button--secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--surface-border);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.button--secondary:active:not(:disabled) {
+  background: var(--surface-pressed);
+  transform: translateY(0);
+}
+
+/* Outline Button */
+.button--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--surface-border);
+}
+
+.button--outline:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.button--outline:active:not(:disabled) {
+  background: var(--surface-pressed);
+  transform: translateY(0);
+}
+
+/* Ghost Button */
+.button--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.button--ghost:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.button--ghost:active:not(:disabled) {
+  background: var(--surface-pressed);
+  transform: translateY(0);
+}
+
+/* Button Sizes */
+.button--sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  min-height: 32px;
+}
+
+.button--md {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-base);
+  min-height: 40px;
+}
+
+.button--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  min-height: 48px;
+}
+
+/* Loading State */
+.button--loading {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button--loading .content {
+  opacity: 0.7;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: var(--space-2);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled State */
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button--disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Focus States */
+.button:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* Content wrapper */
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .button--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    min-height: 44px;
+  }
+}
