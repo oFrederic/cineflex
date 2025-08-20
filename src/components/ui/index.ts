@@ -4,6 +4,7 @@ export { default as Button } from './Button';
 export { default as Grid, GridItem } from './Grid';
 export { default as Input } from './Input';
 export { default as MovieCard } from './MovieCard';
+export { default as MovieGrid } from './MovieGrid';
 
 // Loading components
 export {

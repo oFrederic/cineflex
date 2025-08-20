@@ -1,0 +1,54 @@
+/* MovieGrid Component - Following DESIGN.md specifications */
+
+.movieGrid {
+  width: 100%;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+  text-align: center;
+  min-height: 400px;
+}
+
+.emptyIcon {
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-6);
+  opacity: 0.6;
+}
+
+.emptyTitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+}
+
+.emptyText {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 400px;
+  margin-bottom: var(--space-6);
+}
+
+/* Responsive adjustments for empty state */
+@media (max-width: 640px) {
+  .emptyState {
+    padding: var(--space-8);
+    min-height: 300px;
+  }
+
+  .emptyTitle {
+    font-size: var(--text-xl);
+  }
+
+  .emptyText {
+    font-size: var(--text-sm);
+  }
+}

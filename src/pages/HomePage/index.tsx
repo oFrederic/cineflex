@@ -4,6 +4,7 @@ import {
   GridItem,
   Input,
   MovieCard,
+  MovieGrid,
   Skeleton,
   SkeletonCard,
   SkeletonGrid,
@@ -271,6 +272,48 @@ export const HomePage: React.FC = () => {
                 </GridItem>
               ))}
             </Grid>
+          </div>
+        </section>
+
+        {/* MovieGrid Showcase */}
+        <section className='mb-12'>
+          <h2 className='heading-3 mb-6'>MovieGrid Component</h2>
+          <p className='body-large mb-6'>
+            MovieGrid component following DESIGN.md specifications with
+            responsive grid (2→6 columns), 4pt spacing system, and skeleton
+            loading states.
+          </p>
+
+          {/* MovieGrid with Movies */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>MovieGrid with Movies</h3>
+            <MovieGrid
+              movies={sampleMovies}
+              onAddToWatchlist={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Added movie ${movieId} to watchlist`);
+              }}
+              onMovieClick={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Clicked on movie ${movieId}`);
+              }}
+            />
+          </div>
+
+          {/* MovieGrid Loading State */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>MovieGrid Loading State</h3>
+            <MovieGrid movies={[]} loading={true} />
+          </div>
+
+          {/* MovieGrid Empty State */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>MovieGrid Empty State</h3>
+            <MovieGrid movies={[]}>
+              <Button variant='primary' size='sm'>
+                Browse Popular Movies
+              </Button>
+            </MovieGrid>
           </div>
         </section>
 
