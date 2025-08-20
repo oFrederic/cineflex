@@ -1,0 +1,224 @@
+/* MovieCard Component - Following DESIGN.md specifications */
+
+.movieCard {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  aspect-ratio: 2/3; /* Movie poster ratio */
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.movieCard:focus {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* Poster Container */
+.posterContainer {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movieCard:hover .poster {
+  transform: scale(1.1);
+}
+
+/* Overlay for actions */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--space-3);
+}
+
+.movieCard:hover .overlay {
+  opacity: 1;
+}
+
+/* Watchlist Button */
+.watchlistButton {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+.watchlistButton:hover {
+  background: var(--accent-red);
+  transform: scale(1.1);
+}
+
+.watchlistButton:focus {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* Content Area */
+.content {
+  padding: var(--space-4);
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* Title */
+.title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  margin-bottom: var(--space-2);
+}
+
+/* Meta Information */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.year {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--font-medium);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--warning);
+  font-weight: var(--font-medium);
+}
+
+.starIcon {
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+/* Children content area */
+.children {
+  margin-top: var(--space-2);
+}
+
+/* Loading State */
+.movieCard.loading {
+  pointer-events: none;
+}
+
+.movieCard.loading .poster {
+  background: var(--bg-tertiary);
+  animation: skeleton-loading 2s infinite;
+}
+
+.movieCard.loading .title {
+  background: var(--bg-tertiary);
+  height: 1em;
+  border-radius: var(--radius-sm);
+  animation: skeleton-loading 2s infinite;
+}
+
+.movieCard.loading .year,
+.movieCard.loading .rating {
+  background: var(--bg-tertiary);
+  height: 0.8em;
+  border-radius: var(--radius-sm);
+  animation: skeleton-loading 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .movieCard {
+    aspect-ratio: 3/4; /* Slightly taller on mobile */
+  }
+
+  .content {
+    padding: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--text-xs);
+  }
+
+  .year,
+  .rating {
+    font-size: 10px;
+  }
+}
+
+/* Focus styles for accessibility */
+.movieCard:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .movieCard,
+  .poster,
+  .overlay,
+  .watchlistButton {
+    transition: none;
+  }
+
+  .movieCard:hover {
+    transform: none;
+  }
+
+  .movieCard:hover .poster {
+    transform: none;
+  }
+
+  .watchlistButton:hover {
+    transform: none;
+  }
+}

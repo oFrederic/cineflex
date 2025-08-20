@@ -3,6 +3,7 @@ import {
   Grid,
   GridItem,
   Input,
+  MovieCard,
   Skeleton,
   SkeletonCard,
   SkeletonGrid,
@@ -10,6 +11,70 @@ import {
   Spinner,
 } from '@/components/ui';
 import { ROUTES } from '@/shared/constants/routes';
+
+// Sample movie data for showcase
+const sampleMovies = [
+  {
+    id: 1,
+    title: 'Inception',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
+    release_date: '2010-07-16',
+    vote_average: 8.8,
+    overview:
+      'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+  },
+  {
+    id: 2,
+    title: 'The Dark Knight',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
+    release_date: '2008-07-18',
+    vote_average: 9.0,
+    overview:
+      'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
+  },
+  {
+    id: 3,
+    title: 'Interstellar',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+    release_date: '2014-11-07',
+    vote_average: 8.6,
+    overview:
+      "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+  },
+  {
+    id: 4,
+    title: 'Pulp Fiction',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/fIE3lAGcZDV1G6XM5KmuWnNsPp1.jpg',
+    release_date: '1994-10-14',
+    vote_average: 8.9,
+    overview:
+      'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+  },
+  {
+    id: 5,
+    title: 'The Shawshank Redemption',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+    release_date: '1994-09-23',
+    vote_average: 9.3,
+    overview:
+      'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+  },
+  {
+    id: 6,
+    title: 'Fight Club',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+    release_date: '1999-10-15',
+    vote_average: 8.8,
+    overview:
+      'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.',
+  },
+];
 
 /**
  * HomePage Component
@@ -147,6 +212,64 @@ export const HomePage: React.FC = () => {
                   <p className='text-secondary'>This item takes 1 column.</p>
                 </div>
               </GridItem>
+            </Grid>
+          </div>
+        </section>
+
+        {/* MovieCard Showcase */}
+        <section className='mb-12'>
+          <h2 className='heading-3 mb-6'>MovieCard Component</h2>
+          <p className='body-large mb-6'>
+            MovieCard component following DESIGN.md specifications with 2/3
+            aspect ratio, hover effects, and design system typography.
+          </p>
+
+          {/* MovieCard Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Movie Cards with Hover Effects</h3>
+            <Grid variant='movie' gap='md'>
+              {sampleMovies.map(movie => (
+                <GridItem key={movie.id}>
+                  <MovieCard
+                    movie={movie}
+                    onAddToWatchlist={movieId => {
+                      // eslint-disable-next-line no-console
+                      console.log(`Added movie ${movieId} to watchlist`);
+                    }}
+                    onMovieClick={movieId => {
+                      // eslint-disable-next-line no-console
+                      console.log(`Clicked on movie ${movieId}`);
+                    }}
+                  />
+                </GridItem>
+              ))}
+            </Grid>
+          </div>
+
+          {/* MovieCard with Custom Content */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>MovieCard with Custom Children</h3>
+            <Grid variant='movie' gap='md'>
+              {sampleMovies.slice(0, 3).map(movie => (
+                <GridItem key={movie.id}>
+                  <MovieCard
+                    movie={movie}
+                    onAddToWatchlist={movieId => {
+                      // eslint-disable-next-line no-console
+                      console.log(`Added movie ${movieId} to watchlist`);
+                    }}
+                  >
+                    <div className='flex gap-2 mt-2'>
+                      <span className='text-xs bg-accent-red text-white px-2 py-1 rounded'>
+                        Action
+                      </span>
+                      <span className='text-xs bg-surface-border text-text-secondary px-2 py-1 rounded'>
+                        Adventure
+                      </span>
+                    </div>
+                  </MovieCard>
+                </GridItem>
+              ))}
             </Grid>
           </div>
         </section>
