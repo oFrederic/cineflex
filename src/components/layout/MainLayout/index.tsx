@@ -10,6 +10,7 @@ interface MainLayoutProps {
 /**
  * MainLayout Component
  * Main layout wrapper that provides consistent structure across all pages
+ * Uses design system containers and responsive layout patterns
  */
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
@@ -19,8 +20,12 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
       {/* Main Content Area */}
       <main className={styles.main}>
-        {/* Page Content */}
-        <div className={styles.content}>{children}</div>
+        {/* Page Content with Design System Container */}
+        <div
+          className={`${styles.content} ${styles.container} ${styles['container-xl']}`}
+        >
+          {children}
+        </div>
       </main>
 
       {/* Footer */}
