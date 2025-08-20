@@ -176,13 +176,13 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 640px) {
+@media (max-width: 474px) {
   .movieCard {
     aspect-ratio: 3/4; /* Slightly taller on mobile */
   }
 
   .content {
-    padding: var(--space-3);
+    padding: var(--space-2);
   }
 
   .title {
@@ -192,6 +192,135 @@
   .year,
   .rating {
     font-size: 10px;
+  }
+
+  .watchlistButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .watchlistButton svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 475px) and (max-width: 639px) {
+  .movieCard {
+    aspect-ratio: 3/4;
+  }
+
+  .content {
+    padding: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--text-sm);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-xs);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .movieCard {
+    aspect-ratio: 2/3;
+  }
+
+  .content {
+    padding: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--text-sm);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-xs);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .movieCard {
+    aspect-ratio: 2/3;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .movieCard {
+    aspect-ratio: 2/3;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .movieCard {
+    aspect-ratio: 2/3;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (min-width: 1536px) {
+  .movieCard {
+    aspect-ratio: 2/3;
+  }
+
+  .content {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: var(--text-lg);
+  }
+
+  .year,
+  .rating {
+    font-size: var(--text-base);
+  }
+
+  .rating svg {
+    width: 14px;
+    height: 14px;
   }
 }
 

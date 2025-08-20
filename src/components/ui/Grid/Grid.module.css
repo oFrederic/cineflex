@@ -111,6 +111,22 @@
 
 /* Responsive Design - Mobile First Approach */
 
+/* Extra small screens (475px and up) */
+@media (min-width: 475px) {
+  .grid--movie {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .grid--content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid--bento {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 /* Small screens (640px and up) */
 @media (min-width: 640px) {
   .grid--movie {
@@ -120,6 +136,10 @@
 
   .grid--content {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--bento {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -132,6 +152,10 @@
 
   .grid--content {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--bento {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .grid--hero {
@@ -171,35 +195,59 @@
   }
 }
 
-/* Mobile adjustments */
-@media (max-width: 767px) {
+/* 2X Large screens (1536px and up) */
+@media (min-width: 1536px) {
+  .grid--movie {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .grid--content {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid--bento {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
+}
+
+/* Mobile adjustments (below 475px) */
+@media (max-width: 474px) {
   .grid--hero {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    min-height: 60vh;
+    gap: var(--space-6);
+    min-height: 50vh;
   }
 
   .grid--movie {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-    padding: var(--space-4);
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-3);
   }
 
   .grid--content {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
   .grid--bento {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 }
 
 /* Utility classes for responsive column spans */
+@media (min-width: 475px) {
+  .xs\:gridItem--span-2 {
+    grid-column: span 2;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:gridItem--span-2 {
     grid-column: span 2;
+  }
+  .sm\:gridItem--span-3 {
+    grid-column: span 3;
   }
 }
 
@@ -209,6 +257,9 @@
   }
   .md\:gridItem--span-3 {
     grid-column: span 3;
+  }
+  .md\:gridItem--span-4 {
+    grid-column: span 4;
   }
 }
 
@@ -221,6 +272,48 @@
   }
   .lg\:gridItem--span-4 {
     grid-column: span 4;
+  }
+  .lg\:gridItem--span-5 {
+    grid-column: span 5;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:gridItem--span-2 {
+    grid-column: span 2;
+  }
+  .xl\:gridItem--span-3 {
+    grid-column: span 3;
+  }
+  .xl\:gridItem--span-4 {
+    grid-column: span 4;
+  }
+  .xl\:gridItem--span-5 {
+    grid-column: span 5;
+  }
+  .xl\:gridItem--span-6 {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\2xl\:gridItem--span-2 {
+    grid-column: span 2;
+  }
+  .\2xl\:gridItem--span-3 {
+    grid-column: span 3;
+  }
+  .\2xl\:gridItem--span-4 {
+    grid-column: span 4;
+  }
+  .\2xl\:gridItem--span-5 {
+    grid-column: span 5;
+  }
+  .\2xl\:gridItem--span-6 {
+    grid-column: span 6;
+  }
+  .\2xl\:gridItem--span-7 {
+    grid-column: span 7;
   }
 }
 

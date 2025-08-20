@@ -540,14 +540,22 @@ body {
 /* Responsive Grid */
 .movies-grid {
   display: grid;
-  gap: var(--space-4);
-  /* Mobile: 2 columns */
-  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  /* Mobile: 1 column */
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 475px) {
+  .movies-grid {
+    /* Extra small: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
 }
 
 @media (min-width: 640px) {
   .movies-grid {
-    /* Tablet: 3-4 columns */
+    /* Small: 3 columns */
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
   }
@@ -555,7 +563,7 @@ body {
 
 @media (min-width: 768px) {
   .movies-grid {
-    /* Desktop: 4-5 columns */
+    /* Medium: 4 columns */
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-6);
   }
@@ -563,15 +571,22 @@ body {
 
 @media (min-width: 1024px) {
   .movies-grid {
-    /* Large Desktop: 5-6 columns */
+    /* Large: 5 columns */
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (min-width: 1280px) {
   .movies-grid {
-    /* XL Desktop: 6-7 columns */
+    /* XL: 6 columns */
     grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1536px) {
+  .movies-grid {
+    /* 2XL: 7 columns */
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
@@ -642,6 +657,13 @@ body {
 }
 
 /* Responsive container padding */
+@media (min-width: 475px) {
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     padding-left: var(--space-6);
@@ -653,5 +675,170 @@ body {
   .container {
     padding-left: var(--space-8);
     padding-right: var(--space-8);
+  }
+}
+
+/* Responsive Utility Classes */
+/* Hide/Show utilities */
+@media (max-width: 474px) {
+  .xs\:hidden {
+    display: none !important;
+  }
+  .xs\:block {
+    display: block !important;
+  }
+  .xs\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 475px) and (max-width: 639px) {
+  .xs\:block {
+    display: block !important;
+  }
+  .xs\:hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .sm\:block {
+    display: block !important;
+  }
+  .sm\:hidden {
+    display: none !important;
+  }
+  .sm\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .md\:block {
+    display: block !important;
+  }
+  .md\:hidden {
+    display: none !important;
+  }
+  .md\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .lg\:block {
+    display: block !important;
+  }
+  .lg\:hidden {
+    display: none !important;
+  }
+  .lg\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .xl\:block {
+    display: block !important;
+  }
+  .xl\:hidden {
+    display: none !important;
+  }
+  .xl\:flex {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\2xl\:block {
+    display: block !important;
+  }
+  .\2xl\:hidden {
+    display: none !important;
+  }
+  .\2xl\:flex {
+    display: flex !important;
+  }
+}
+
+/* Responsive text sizes */
+@media (max-width: 474px) {
+  .xs\:text-xs {
+    font-size: var(--text-xs) !important;
+  }
+  .xs\:text-sm {
+    font-size: var(--text-sm) !important;
+  }
+  .xs\:text-base {
+    font-size: var(--text-base) !important;
+  }
+}
+
+@media (min-width: 475px) {
+  .xs\:text-lg {
+    font-size: var(--text-lg) !important;
+  }
+  .xs\:text-xl {
+    font-size: var(--text-xl) !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:text-lg {
+    font-size: var(--text-lg) !important;
+  }
+  .sm\:text-xl {
+    font-size: var(--text-xl) !important;
+  }
+  .sm\:text-2xl {
+    font-size: var(--text-2xl) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-xl {
+    font-size: var(--text-xl) !important;
+  }
+  .md\:text-2xl {
+    font-size: var(--text-2xl) !important;
+  }
+  .md\:text-3xl {
+    font-size: var(--text-3xl) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-2xl {
+    font-size: var(--text-2xl) !important;
+  }
+  .lg\:text-3xl {
+    font-size: var(--text-3xl) !important;
+  }
+  .lg\:text-4xl {
+    font-size: var(--text-4xl) !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-3xl {
+    font-size: var(--text-3xl) !important;
+  }
+  .xl\:text-4xl {
+    font-size: var(--text-4xl) !important;
+  }
+  .xl\:text-5xl {
+    font-size: var(--text-5xl) !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\2xl\:text-4xl {
+    font-size: var(--text-4xl) !important;
+  }
+  .\2xl\:text-5xl {
+    font-size: var(--text-5xl) !important;
+  }
+  .\2xl\:text-6xl {
+    font-size: var(--text-6xl) !important;
   }
 }

@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import { Button, Grid, GridItem } from '@/components/ui';
+import { useResponsiveValue } from '@/shared/hooks';
+import { useState } from 'react';
 import MovieCard, { type Movie } from '../MovieCard';
 import styles from './MovieDetails.module.css';
 
@@ -64,6 +65,37 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({
   'data-testid': dataTestId,
 }) => {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
+
+  // Use responsive hooks for dynamic styling
+  const heroMinHeight = useResponsiveValue({
+    xs: '50vh',
+    sm: '55vh',
+    md: '60vh',
+    lg: '70vh',
+    xl: '75vh',
+    '2xl': '85vh',
+    default: '80vh',
+  });
+
+  const heroTitleSize = useResponsiveValue({
+    xs: 'var(--text-2xl)',
+    sm: 'var(--text-3xl)',
+    md: 'var(--text-4xl)',
+    lg: 'var(--text-4xl)',
+    xl: 'var(--text-5xl)',
+    '2xl': 'var(--text-6xl)',
+    default: 'var(--text-5xl)',
+  });
+
+  const posterMaxWidth = useResponsiveValue({
+    xs: '150px',
+    sm: '180px',
+    md: '200px',
+    lg: '250px',
+    xl: '280px',
+    '2xl': '350px',
+    default: '300px',
+  });
 
   const formatRuntime = (minutes: number) => {
     const hours = Math.floor(minutes / 60);
@@ -295,10 +327,23 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({
     .filter(Boolean)
     .join(' ');
 
+  // Apply responsive styles inline
+  const heroSectionStyle = {
+    minHeight: heroMinHeight,
+  } as React.CSSProperties;
+
+  const heroTitleStyle = {
+    fontSize: heroTitleSize,
+  } as React.CSSProperties;
+
+  const posterStyle = {
+    maxWidth: posterMaxWidth,
+  } as React.CSSProperties;
+
   return (
     <div className={containerClasses} data-testid={dataTestId}>
       {/* Hero Section */}
-      <section className={styles.heroSection}>
+      <section className={styles.heroSection} style={heroSectionStyle}>
         <div className={styles.heroBackground}>
           {movie.backdrop_path && (
             <img
@@ -314,7 +359,9 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({
           <Grid variant='hero' gap='xl'>
             <GridItem>
               <div className={styles.heroInfo}>
-                <h1 className={styles.heroTitle}>{movie.title}</h1>
+                <h1 className={styles.heroTitle} style={heroTitleStyle}>
+                  {movie.title}
+                </h1>
                 {movie.tagline && (
                   <p className={styles.heroTagline}>"{movie.tagline}"</p>
                 )}
@@ -391,6 +438,7 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={`${movie.title} poster`}
                   className={styles.posterImage}
+                  style={posterStyle}
                 />
               </div>
             </GridItem>

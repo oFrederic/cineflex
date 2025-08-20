@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useResponsiveValue } from '@/shared/hooks/useMediaQuery';
 import styles from './MovieCard.module.css';
 
 export interface Movie {
@@ -36,6 +37,27 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   children,
   'data-testid': dataTestId,
 }) => {
+  // Use responsive hooks for dynamic styling
+  const aspectRatio = useResponsiveValue({
+    xs: '3/4',
+    sm: '3/4',
+    md: '2/3',
+    lg: '2/3',
+    xl: '2/3',
+    '2xl': '2/3',
+    default: '2/3',
+  });
+
+  const titleSize = useResponsiveValue({
+    xs: 'var(--text-xs)',
+    sm: 'var(--text-sm)',
+    md: 'var(--text-sm)',
+    lg: 'var(--text-base)',
+    xl: 'var(--text-base)',
+    '2xl': 'var(--text-lg)',
+    default: 'var(--text-sm)',
+  });
+
   const handleCardClick = () => {
     onMovieClick?.(movie.id);
   };
@@ -55,9 +77,19 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 
   const cardClasses = [styles.movieCard, className].filter(Boolean).join(' ');
 
+  // Apply responsive styles inline
+  const cardStyle = {
+    aspectRatio,
+  } as React.CSSProperties;
+
+  const titleStyle = {
+    fontSize: titleSize,
+  } as React.CSSProperties;
+
   return (
     <article
       className={cardClasses}
+      style={cardStyle}
       onClick={handleCardClick}
       data-testid={dataTestId}
       role='button'
@@ -106,7 +138,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 
       {/* Movie Content */}
       <div className={styles.content}>
-        <h3 className={styles.title} title={movie.title}>
+        <h3 className={styles.title} style={titleStyle} title={movie.title}>
           {movie.title}
         </h3>
 

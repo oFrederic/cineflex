@@ -6,12 +6,14 @@ import {
   MovieCard,
   MovieDetails,
   MovieGrid,
+  ResponsiveShowcase,
   Skeleton,
   SkeletonCard,
   SkeletonGrid,
   SkeletonText,
   Spinner,
 } from '@/components/ui';
+
 import { ROUTES } from '@/shared/constants/routes';
 
 // Sample movie data for showcase
@@ -421,6 +423,71 @@ export const HomePage: React.FC = () => {
                 Browse Popular Movies
               </Button>
             </MovieGrid>
+          </div>
+        </section>
+
+        {/* Responsive Hooks Showcase */}
+        <section className='mb-12'>
+          <ResponsiveShowcase />
+        </section>
+
+        {/* Responsive Breakpoints Showcase */}
+        <section className='mb-12'>
+          <h2 className='heading-3 mb-6'>Responsive Breakpoints Test</h2>
+          <p className='body-large mb-6'>
+            Testing all design system breakpoints: xs (475px), sm (640px), md
+            (768px), lg (1024px), xl (1280px), 2xl (1536px)
+          </p>
+
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Current Breakpoint Indicators</h3>
+            <div className='grid gap-4 mb-6'>
+              <div className='xs:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>XS (≤474px):</strong> Mobile - 1 column grid, compact
+                spacing
+              </div>
+              <div className='hidden xs:block sm:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>SM (475px-639px):</strong> Small mobile - 2 columns,
+                basic spacing
+              </div>
+              <div className='hidden sm:block md:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>MD (640px-767px):</strong> Large mobile - 3 columns,
+                comfortable spacing
+              </div>
+              <div className='hidden md:block lg:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>LG (768px-1023px):</strong> Tablet - 4 columns, standard
+                spacing
+              </div>
+              <div className='hidden lg:block xl:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>XL (1024px-1279px):</strong> Small desktop - 5 columns,
+                generous spacing
+              </div>
+              <div className='hidden xl:block 2xl:hidden bg-accent-red text-white p-3 rounded'>
+                <strong>2XL (1280px-1535px):</strong> Desktop - 6 columns,
+                premium spacing
+              </div>
+              <div className='hidden 2xl:block bg-accent-red text-white p-3 rounded'>
+                <strong>3XL (≥1536px):</strong> Large desktop - 7 columns,
+                maximum spacing
+              </div>
+            </div>
+
+            <h3 className='heading-4 mb-4'>Responsive Movie Grid Test</h3>
+            <p className='body-base mb-4'>
+              This grid should adapt from 1 column on mobile to 7 columns on
+              large screens:
+            </p>
+            <MovieGrid
+              movies={sampleMovies}
+              onAddToWatchlist={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Added movie ${movieId} to watchlist`);
+              }}
+              onMovieClick={movieId => {
+                // eslint-disable-next-line no-console
+                console.log(`Clicked on movie ${movieId}`);
+              }}
+            />
           </div>
         </section>
 

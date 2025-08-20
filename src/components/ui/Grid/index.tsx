@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useResponsiveValue } from '@/shared/hooks/useMediaQuery';
 import styles from './Grid.module.css';
 
 export interface GridProps {
@@ -29,10 +30,21 @@ export const Grid: React.FC<GridProps> = ({
   className = '',
   'data-testid': dataTestId,
 }) => {
+  // Use responsive hooks to determine grid columns based on breakpoint
+  const responsiveColumns = useResponsiveValue({
+    xs: variant === 'movie' ? 1 : 1,
+    sm: variant === 'movie' ? 2 : 1,
+    md: variant === 'movie' ? 3 : 2,
+    lg: variant === 'movie' ? 4 : 3,
+    xl: variant === 'movie' ? 5 : 4,
+    '2xl': variant === 'movie' ? 6 : 5,
+    default: columns,
+  });
+
   const gridClasses = [
     styles.grid,
     styles[`grid--${variant}`],
-    styles[`grid--cols-${columns}`],
+    styles[`grid--cols-${responsiveColumns}`],
     styles[`grid--gap-${gap}`],
     className,
   ]
