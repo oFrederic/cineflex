@@ -1,5 +1,7 @@
 import {
   Button,
+  Grid,
+  GridItem,
   Input,
   Skeleton,
   SkeletonCard,
@@ -11,7 +13,7 @@ import { ROUTES } from '@/shared/constants/routes';
 
 /**
  * HomePage Component
- * Main landing page showcasing the foundational components
+ * Main landing page showcasing the foundational components and grid system
  */
 export const HomePage: React.FC = () => {
   return (
@@ -22,6 +24,132 @@ export const HomePage: React.FC = () => {
         <p className='body-small text-tertiary mb-8'>
           Current route: {ROUTES.HOME}
         </p>
+
+        {/* Grid System Showcase */}
+        <section className='mb-12'>
+          <h2 className='heading-3 mb-6'>Responsive Grid System</h2>
+
+          {/* Bento Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Bento Grid Layout</h3>
+            <Grid variant='bento' gap='lg'>
+              <GridItem span={2}>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Featured Content</h4>
+                  <p className='text-secondary'>
+                    This item spans 2 columns in the bento grid layout.
+                  </p>
+                </div>
+              </GridItem>
+              <GridItem>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Regular Item</h4>
+                  <p className='text-secondary'>
+                    Standard grid item with single column span.
+                  </p>
+                </div>
+              </GridItem>
+              <GridItem>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Another Item</h4>
+                  <p className='text-secondary'>Another standard grid item.</p>
+                </div>
+              </GridItem>
+              <GridItem span={2}>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Wide Content</h4>
+                  <p className='text-secondary'>
+                    This item also spans 2 columns for balanced layout.
+                  </p>
+                </div>
+              </GridItem>
+            </Grid>
+          </div>
+
+          {/* Movie Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Movie Grid Layout</h3>
+            <Grid variant='movie' gap='md'>
+              {Array.from({ length: 6 }, (_, i) => (
+                <GridItem key={i}>
+                  <div className='bg-secondary p-4 rounded-lg border border-surface-border aspect-[2/3] flex flex-col justify-between'>
+                    <div className='bg-tertiary h-32 rounded mb-3'></div>
+                    <div>
+                      <h4 className='heading-6 mb-1'>Movie Title {i + 1}</h4>
+                      <p className='text-xs text-tertiary'>2024 • Action</p>
+                    </div>
+                  </div>
+                </GridItem>
+              ))}
+            </Grid>
+          </div>
+
+          {/* Hero Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Hero Grid Layout</h3>
+            <Grid variant='hero' gap='xl'>
+              <GridItem>
+                <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
+                  <h4 className='heading-4 mb-4'>Hero Content</h4>
+                  <p className='text-secondary mb-4'>
+                    This is the main hero content area with larger text and more
+                    prominent styling.
+                  </p>
+                  <Button variant='primary'>Call to Action</Button>
+                </div>
+              </GridItem>
+              <GridItem>
+                <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
+                  <h4 className='heading-4 mb-4'>Supporting Content</h4>
+                  <p className='text-secondary mb-4'>
+                    This is the supporting content area that complements the
+                    hero section.
+                  </p>
+                  <Button variant='outline'>Learn More</Button>
+                </div>
+              </GridItem>
+            </Grid>
+          </div>
+
+          {/* Content Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Content Grid Layout</h3>
+            <Grid variant='content' gap='md'>
+              {Array.from({ length: 4 }, (_, i) => (
+                <GridItem key={i}>
+                  <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                    <h4 className='heading-5 mb-2'>Content Card {i + 1}</h4>
+                    <p className='text-secondary'>
+                      This is a content card that adapts to different screen
+                      sizes using the responsive grid system.
+                    </p>
+                  </div>
+                </GridItem>
+              ))}
+            </Grid>
+          </div>
+
+          {/* Custom Column Grid */}
+          <div className='mb-8'>
+            <h3 className='heading-4 mb-4'>Custom Column Grid</h3>
+            <Grid columns={3} gap='lg'>
+              <GridItem span={2}>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Wide Content (2 columns)</h4>
+                  <p className='text-secondary'>
+                    This item spans 2 out of 3 columns.
+                  </p>
+                </div>
+              </GridItem>
+              <GridItem>
+                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
+                  <h4 className='heading-5 mb-2'>Narrow Content</h4>
+                  <p className='text-secondary'>This item takes 1 column.</p>
+                </div>
+              </GridItem>
+            </Grid>
+          </div>
+        </section>
 
         {/* Component Showcase */}
         <section className='mb-12'>
