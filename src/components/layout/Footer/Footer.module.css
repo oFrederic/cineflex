@@ -63,6 +63,16 @@
   outline-offset: 2px;
 }
 
+.chevronDown {
+  transform: rotate(0deg);
+  transition: transform 0.2s var(--ease-out);
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+  transition: transform 0.2s var(--ease-out);
+}
+
 /* Content Section */
 .content {
   display: grid;
@@ -83,16 +93,34 @@
   transform: translateY(-20px);
 }
 
+/* Mobile dynamic height adjustment */
+@media (max-width: 1023px) {
+  .content:not(.hidden) {
+    max-height: none; /* Remove height restriction */
+    overflow: visible; /* Remove scroll */
+  }
+}
+
 /* Brand Section */
 .brandSection {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 .logo {
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all 0.2s ease;
+}
+
+.logoIcon {
+  color: var(--accent-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logoText {
@@ -104,7 +132,8 @@
   transition: all 0.2s ease;
 }
 
-.logo:hover .logoText {
+.logo:hover .logoText,
+.logo:hover .logoIcon {
   color: var(--accent-red-hover);
   transform: scale(1.05);
 }
@@ -113,6 +142,36 @@
   font-size: var(--text-base);
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Brand Stats */
+.brandStats {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-2);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.statNumber {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--accent-red);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--font-medium);
 }
 
 /* Links Section */
@@ -149,22 +208,34 @@
   text-decoration: none;
   font-size: var(--text-sm);
   transition: all 0.2s ease;
-  padding: var(--space-1) 0;
+  padding: var(--space-2);
   font-family: var(--font-primary);
-  border-radius: 4px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .link:hover {
   color: var(--text-primary);
   background: var(--surface-hover);
-  padding: var(--space-1) var(--space-2);
   transform: translateX(4px);
 }
 
 .link:focus {
   outline: 2px solid var(--accent-red);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
+}
+
+.link svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover svg {
+  opacity: 1;
 }
 
 /* Bottom Section */
@@ -191,21 +262,26 @@
 .copyrightText {
   font-size: var(--text-sm);
   color: var(--text-tertiary);
+  margin: 0;
 }
 
 .disclaimer {
   font-size: var(--text-xs);
   color: var(--text-tertiary);
+  margin: 0;
+  line-height: var(--leading-normal);
 }
 
 .tmdbLink {
   color: var(--accent-red);
   text-decoration: none;
   transition: color 0.2s var(--ease-out);
+  font-weight: var(--font-medium);
 }
 
 .tmdbLink:hover {
   color: var(--accent-red-hover);
+  text-decoration: underline;
 }
 
 /* Social Links */
@@ -251,24 +327,28 @@
   .linksSection {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .brandStats {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: var(--space-8) 0 var(--space-4);
+    padding: var(--space-6) 0 var(--space-4);
   }
 
   .footer.collapsed {
-    padding: var(--space-6) 0 var(--space-4);
+    padding: var(--space-4) 0 var(--space-4);
   }
 
   /* Fix toggle button positioning on mobile */
   .toggleContainer {
-    top: calc(-20px - var(--space-8));
+    top: calc(-20px - var(--space-6));
   }
 
   .footer.collapsed .toggleContainer {
-    top: calc(-20px - var(--space-6));
+    top: calc(-20px - var(--space-4));
   }
 
   .content {
@@ -285,6 +365,14 @@
     flex-direction: column;
     gap: var(--space-4);
   }
+
+  .brandStats {
+    gap: var(--space-4);
+  }
+
+  .statNumber {
+    font-size: var(--text-lg);
+  }
 }
 
 @media (max-width: 480px) {
@@ -299,5 +387,23 @@
 
   .socialLinks {
     justify-content: center;
+  }
+
+  .brandStats {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .stat {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  .statNumber {
+    font-size: var(--text-base);
+  }
+
+  .statLabel {
+    font-size: var(--text-xs);
   }
 }
