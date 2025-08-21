@@ -10,6 +10,9 @@ import MoviesPage from '@/pages/MoviesPage';
 import SearchPage from '@/pages/SearchPage';
 import WatchlistPage from '@/pages/WatchlistPage';
 
+// Providers
+import { QueryProvider } from '@/shared/providers/QueryProvider';
+
 // Constants
 import { ROUTES } from '@/shared/constants/routes';
 
@@ -18,17 +21,19 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <MainLayout>
-        <Routes>
-          <Route path={ROUTES.HOME} element={<HomePage />} />
-          <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
-          <Route path={ROUTES.MOVIE_DETAILS} element={<MovieDetailsPage />} />
-          <Route path={ROUTES.SEARCH} element={<SearchPage />} />
-          <Route path={ROUTES.WATCHLIST} element={<WatchlistPage />} />
-        </Routes>
-      </MainLayout>
-    </Router>
+    <QueryProvider>
+      <Router>
+        <MainLayout>
+          <Routes>
+            <Route path={ROUTES.HOME} element={<HomePage />} />
+            <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
+            <Route path={ROUTES.MOVIE_DETAILS} element={<MovieDetailsPage />} />
+            <Route path={ROUTES.SEARCH} element={<SearchPage />} />
+            <Route path={ROUTES.WATCHLIST} element={<WatchlistPage />} />
+          </Routes>
+        </MainLayout>
+      </Router>
+    </QueryProvider>
   );
 }
 
