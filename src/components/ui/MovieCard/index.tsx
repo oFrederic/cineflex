@@ -1,10 +1,11 @@
 import { useResponsiveValue } from '@/shared/hooks/useMediaQuery';
+import { buildTMDBImageUrl } from '@/shared/utils/formatters';
 import styles from './MovieCard.module.css';
 
 export interface Movie {
   id: number;
   title: string;
-  poster_path: string;
+  poster_path: string | null;
   release_date: string;
   vote_average: number;
   overview?: string;
@@ -102,7 +103,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
       {/* Movie Poster */}
       <div className={styles.posterContainer}>
         <img
-          src={movie.poster_path}
+          src={buildTMDBImageUrl(movie.poster_path)}
           alt={`${movie.title} poster`}
           className={styles.poster}
           loading='lazy'

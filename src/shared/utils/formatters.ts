@@ -199,3 +199,21 @@ export function formatPhoneNumber(phoneNumber: string): string {
 
   return phoneNumber;
 }
+
+/**
+ * Build TMDB image URL
+ */
+export function buildTMDBImageUrl(
+  path: string | null,
+  size: 'w185' | 'w342' | 'w500' | 'original' = 'w500'
+): string {
+  if (!path) {
+    // Return a placeholder image URL
+    return 'https://via.placeholder.com/500x750/1f2937/ffffff?text=No+Image';
+  }
+
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+
+  return `https://image.tmdb.org/t/p/${size}/${cleanPath}`;
+}

@@ -61,3 +61,15 @@ export {
   useSupportsHover,
   useSupportsTouch,
 } from './useMediaQuery';
+
+// Movie data fetching hooks
+export {
+  useMovies,
+  useInfiniteMovies,
+  useMovieDetails,
+  useMovieCredits,
+  useMovieVideos,
+  useSimilarMovies,
+  useMovieRecommendations,
+  useTrendingAll,
+} from './useMovies';
