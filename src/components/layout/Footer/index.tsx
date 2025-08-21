@@ -301,6 +301,10 @@ export const Footer: React.FC = () => {
               • This product uses the TMDB API but is not endorsed or certified
               by TMDB.
             </p>
+            <p className={styles.creator}>
+              Designed & Built by{' '}
+              <span className={styles.creatorName}>Frederic Wojcikowski</span>
+            </p>
           </div>
 
           <div className={styles.socialLinks}>

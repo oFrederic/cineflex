@@ -6,7 +6,6 @@ export { default as Input } from './Input';
 export { default as MovieCard } from './MovieCard';
 export { default as MovieDetails } from './MovieDetails';
 export { default as MovieGrid } from './MovieGrid';
-export { default as ResponsiveShowcase } from './ResponsiveShowcase';
 
 // Loading components
 export {
