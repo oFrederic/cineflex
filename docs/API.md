@@ -1,4 +1,4 @@
-# 📡 API Documentation
+# 📡 API Documentation.
 
 ## TMDB API Integration Guide
 
