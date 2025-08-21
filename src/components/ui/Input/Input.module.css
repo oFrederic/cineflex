@@ -25,6 +25,11 @@
   line-height: var(--leading-normal);
 }
 
+.input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Search input specific styling */
 .input--search {
   padding-left: var(--space-12);
@@ -147,4 +152,20 @@
 /* Password input specific styling */
 .input[type='password'] {
   letter-spacing: 0.1em;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none !important;
+  }
+
+  .input:focus {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .input:hover {
+    border-color: var(--surface-border) !important;
+  }
 }

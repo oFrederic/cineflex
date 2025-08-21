@@ -7,7 +7,8 @@
   z-index: 1000;
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.3s var(--ease-out);
+  animation: slideInLeft 0.6s var(--ease-out);
 }
 
 .container {
@@ -26,7 +27,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-out);
 }
 
 .logoIcon {
@@ -42,7 +43,7 @@
   font-weight: var(--font-bold);
   color: var(--accent-red);
   letter-spacing: -0.02em;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-out);
 }
 
 .logo:hover .logoText,
@@ -599,5 +600,37 @@
 
   .mobileSearch {
     display: flex;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .logo,
+  .logoText,
+  .navLink,
+  .searchButton,
+  .themeToggle,
+  .hamburger,
+  .hamburgerLine,
+  .mobileNavLink,
+  .closeButton {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .logo:hover .logoText,
+  .logo:hover .logoIcon,
+  .navLink:hover,
+  .searchButton:hover,
+  .themeToggle:hover,
+  .hamburger:hover,
+  .mobileNavLink:hover,
+  .closeButton:hover {
+    transform: none !important;
+  }
+
+  .hamburgerLine.active {
+    transform: none !important;
   }
 }

@@ -190,6 +190,30 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.skeletonGrid .skeletonCard {
+  animation: staggerIn 0.6s var(--ease-out);
+  animation-fill-mode: both;
+}
+
+.skeletonGrid .skeletonCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.skeletonGrid .skeletonCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.skeletonGrid .skeletonCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.skeletonGrid .skeletonCard:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.skeletonGrid .skeletonCard:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.skeletonGrid .skeletonCard:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
 @media (min-width: 640px) {
   .skeletonGrid {
     /* Tablet: 3-4 columns */
@@ -263,4 +287,24 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .skeleton,
+  .skeletonLine,
+  .skeletonPoster,
+  .skeletonTitle,
+  .skeletonYear,
+  .skeletonRating,
+  .skeletonGrid,
+  .skeletonGrid .skeletonCard {
+    animation: none !important;
+  }
+
+  .skeletonCard:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
