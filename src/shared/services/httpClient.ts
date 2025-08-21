@@ -18,15 +18,15 @@ import {
  */
 
 // Environment variables
-const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const TMDB_API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 const TMDB_API_URL =
   import.meta.env.VITE_TMDB_API_URL || TMDB_API_CONFIG.BASE_URL;
 
 // Validate required environment variables
-if (!TMDB_API_KEY) {
+if (!TMDB_API_TOKEN) {
   // eslint-disable-next-line no-console
   console.error(
-    'VITE_TMDB_API_KEY is required. Please add it to your .env file.'
+    'VITE_TMDB_API_TOKEN is required. Please add it to your .env file.'
   );
 }
 
@@ -76,16 +76,16 @@ const TIMEOUT_CONFIG = {
  * Create Axios instance with default configuration
  */
 const createAxiosInstance = (): AxiosInstance => {
+  // Use proxy in development to avoid CORS issues
+  const baseURL = import.meta.env.DEV ? '/api/tmdb' : TMDB_API_URL;
+
   const instance = axios.create({
-    baseURL: TMDB_API_URL,
+    baseURL,
     timeout: TIMEOUT_CONFIG.default,
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      'User-Agent': 'CineFlex/1.0.0',
-    },
-    params: {
-      api_key: TMDB_API_KEY,
+      Authorization: `Bearer ${TMDB_API_TOKEN}`,
     },
     // Enable automatic JSON parsing
     transformResponse: [
