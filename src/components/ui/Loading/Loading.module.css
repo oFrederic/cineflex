@@ -215,7 +215,7 @@
 
 @media (min-width: 1280px) {
   .skeletonGrid {
-    /* XL Desktop: 6-7 columns */
+    /* XL Desktop: 6 columns */
     grid-template-columns: repeat(6, 1fr);
   }
 }

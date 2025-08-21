@@ -55,10 +55,6 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
-.grid--cols-7 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
 /* Gap Variations */
 .grid--gap-xs {
   gap: var(--space-2);
@@ -198,7 +194,7 @@
 /* 2X Large screens (1536px and up) */
 @media (min-width: 1536px) {
   .grid--movie {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 
   .grid--content {
@@ -311,9 +307,6 @@
   }
   .\2xl\:gridItem--span-6 {
     grid-column: span 6;
-  }
-  .\2xl\:gridItem--span-7 {
-    grid-column: span 7;
   }
 }
 

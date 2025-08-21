@@ -440,14 +440,14 @@ export const HomePage: React.FC = () => {
                 premium spacing
               </div>
               <div className='hidden 2xl:block bg-accent-red text-white p-3 rounded'>
-                <strong>3XL (≥1536px):</strong> Large desktop - 7 columns,
+                <strong>3XL (≥1536px):</strong> Large desktop - 6 columns,
                 maximum spacing
               </div>
             </div>
 
             <h3 className='heading-4 mb-4'>Responsive Movie Grid Test</h3>
             <p className='body-base mb-4'>
-              This grid should adapt from 1 column on mobile to 7 columns on
+              This grid should adapt from 1 column on mobile to 6 columns on
               large screens:
             </p>
             <MovieGrid
