@@ -44,6 +44,7 @@ export const HomePage: React.FC = () => {
 
   const handleAddToWatchlist = (movieId: number) => {
     // TODO: Implement watchlist functionality
+    // eslint-disable-next-line no-console
     console.log(`Added movie ${movieId} to watchlist`);
   };
 

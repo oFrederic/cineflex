@@ -80,6 +80,11 @@ export default tseslint.config(
       'coverage/',
       '*.config.js',
       'vite.config.ts',
+      'netlify/functions/',
+      '*.d.ts',
+      'vite-env.d.ts',
+      '.env*',
+      '*.log',
     ],
   }
 );

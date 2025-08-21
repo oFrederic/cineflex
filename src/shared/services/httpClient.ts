@@ -6,11 +6,7 @@ import type {
   AxiosError,
   InternalAxiosRequestConfig,
 } from 'axios';
-import {
-  TMDB_API_CONFIG,
-  HTTP_STATUS,
-  ERROR_MESSAGES,
-} from '@/shared/constants/api';
+import { HTTP_STATUS, ERROR_MESSAGES } from '@/shared/constants/api';
 
 /**
  * HTTP Client Service for TMDB API
@@ -19,8 +15,6 @@ import {
 
 // Environment variables
 const TMDB_API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
-const TMDB_API_URL =
-  import.meta.env.VITE_TMDB_API_URL || TMDB_API_CONFIG.BASE_URL;
 
 // Validate required environment variables
 if (!TMDB_API_TOKEN) {
@@ -76,8 +70,11 @@ const TIMEOUT_CONFIG = {
  * Create Axios instance with default configuration
  */
 const createAxiosInstance = (): AxiosInstance => {
-  // Use proxy in development to avoid CORS issues
-  const baseURL = import.meta.env.DEV ? '/api/tmdb' : TMDB_API_URL;
+  // Use proxy to avoid CORS issues in both development and production
+  // Use direct function path since redirects aren't working properly
+  const baseURL = import.meta.env.DEV
+    ? '/api/tmdb'
+    : '/.netlify/functions/tmdb-proxy';
 
   const instance = axios.create({
     baseURL,
