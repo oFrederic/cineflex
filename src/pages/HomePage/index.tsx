@@ -1,3 +1,5 @@
+import React from 'react';
+import { ROUTES } from '@/shared/constants/routes';
 import {
   Button,
   Grid,
@@ -8,15 +10,11 @@ import {
   MovieGrid,
   ResponsiveShowcase,
   Skeleton,
-  SkeletonCard,
   SkeletonGrid,
-  SkeletonText,
   Spinner,
 } from '@/components/ui';
 
-import { ROUTES } from '@/shared/constants/routes';
-
-// Sample movie data for showcase
+// Sample data for showcase
 const sampleMovies = [
   {
     id: 1,
@@ -26,7 +24,7 @@ const sampleMovies = [
     release_date: '2010-07-16',
     vote_average: 8.8,
     overview:
-      'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+      'A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
   },
   {
     id: 2,
@@ -60,16 +58,6 @@ const sampleMovies = [
   },
   {
     id: 5,
-    title: 'The Shawshank Redemption',
-    poster_path:
-      'https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
-    release_date: '1994-09-23',
-    vote_average: 9.3,
-    overview:
-      'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-  },
-  {
-    id: 6,
     title: 'Fight Club',
     poster_path:
       'https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
@@ -78,61 +66,58 @@ const sampleMovies = [
     overview:
       'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.',
   },
+  {
+    id: 6,
+    title: 'The Matrix',
+    poster_path:
+      'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+    release_date: '1999-03-31',
+    vote_average: 8.7,
+    overview:
+      'A computer programmer discovers that reality as he knows it is a simulation created by machines, and joins a rebellion to break free.',
+  },
 ];
 
-// Sample movie details data for showcase
 const sampleMovieDetails = {
-  ...sampleMovies[0], // Use Inception as base
+  id: 1,
+  title: 'Inception',
+  tagline: 'Your mind is the scene of the crime.',
   overview:
-    'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+    'A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+  poster_path:
+    'https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg',
+  backdrop_path:
+    'https://image.tmdb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg',
+  release_date: '2010-07-16',
   runtime: 148,
+  vote_average: 8.8,
+  vote_count: 23456,
   genres: [
-    { id: 28, name: 'Action' },
-    { id: 878, name: 'Science Fiction' },
-    { id: 53, name: 'Thriller' },
+    { id: 1, name: 'Action' },
+    { id: 2, name: 'Sci-Fi' },
+    { id: 3, name: 'Thriller' },
   ],
   cast: [
     {
       id: 1,
       name: 'Leonardo DiCaprio',
       character: 'Cobb',
-      profile_path: '/9U9Y5GQuWX3EZy39B8nkv4N3b2b.jpg',
+      profile_path: '/actor-1.jpg',
       order: 0,
     },
     {
       id: 2,
       name: 'Joseph Gordon-Levitt',
       character: 'Arthur',
-      profile_path: '/4mOkN9uWMe6UZ9VKqZfdqMsdEDq.jpg',
+      profile_path: '/actor-2.jpg',
       order: 1,
     },
     {
       id: 3,
       name: 'Ellen Page',
       character: 'Ariadne',
-      profile_path: '/8i6ZDkX1TQaXqXkXqXkXqXkXqXk.jpg',
+      profile_path: '/actor-3.jpg',
       order: 2,
-    },
-    {
-      id: 4,
-      name: 'Tom Hardy',
-      character: 'Eames',
-      profile_path: '/oP3A0NaJShM9BbM5SaKNfISjN.jpg',
-      order: 3,
-    },
-    {
-      id: 5,
-      name: 'Ken Watanabe',
-      character: 'Saito',
-      profile_path: '/6a6cl3sOQjqXqXkXqXkXqXkXqXk.jpg',
-      order: 4,
-    },
-    {
-      id: 6,
-      name: 'Dileep Rao',
-      character: 'Yusuf',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
-      order: 5,
     },
   ],
   crew: [
@@ -140,41 +125,18 @@ const sampleMovieDetails = {
       id: 1,
       name: 'Christopher Nolan',
       job: 'Director',
+      profile_path: '/crew-1.jpg',
       department: 'Directing',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
     },
     {
       id: 2,
-      name: 'Christopher Nolan',
-      job: 'Writer',
-      department: 'Writing',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
-    },
-    {
-      id: 3,
-      name: 'Emma Thomas',
-      job: 'Producer',
-      department: 'Production',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
-    },
-    {
-      id: 4,
       name: 'Hans Zimmer',
-      job: 'Original Music Composer',
+      job: 'Composer',
+      profile_path: '/crew-2.jpg',
       department: 'Sound',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
-    },
-    {
-      id: 5,
-      name: 'Wally Pfister',
-      job: 'Director of Photography',
-      department: 'Camera',
-      profile_path: '/qXkXqXkXqXkXqXkXqXkXqXkXqXk.jpg',
     },
   ],
-  similar_movies: sampleMovies.slice(1, 4), // Use other sample movies
-  backdrop_path: '/s3TBrRGB1iav7gFOCNx3H31MoES.jpg',
-  tagline: 'Your mind is the scene of the crime.',
+  similar_movies: sampleMovies.slice(1, 4),
   budget: 160000000,
   revenue: 836836967,
   status: 'Released',
@@ -186,159 +148,53 @@ const sampleMovieDetails = {
   ],
 };
 
-/**
- * HomePage Component
- * Main landing page showcasing the foundational components and grid system
- */
 export const HomePage: React.FC = () => {
   return (
-    <div className='container'>
-      <div className='p-6'>
-        <h1 className='heading-1 mb-6'>Welcome to CineFlex</h1>
-        <p className='body-large mb-4'>Discover amazing movies and TV shows</p>
-        <p className='body-small text-tertiary mb-8'>
-          Current route: {ROUTES.HOME}
-        </p>
-
-        {/* Grid System Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>Responsive Grid System</h2>
-
-          {/* Bento Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Bento Grid Layout</h3>
-            <Grid variant='bento' gap='lg'>
-              <GridItem span={2}>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Featured Content</h4>
-                  <p className='text-secondary'>
-                    This item spans 2 columns in the bento grid layout.
-                  </p>
-                </div>
-              </GridItem>
-              <GridItem>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Regular Item</h4>
-                  <p className='text-secondary'>
-                    Standard grid item with single column span.
-                  </p>
-                </div>
-              </GridItem>
-              <GridItem>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Another Item</h4>
-                  <p className='text-secondary'>Another standard grid item.</p>
-                </div>
-              </GridItem>
-              <GridItem span={2}>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Wide Content</h4>
-                  <p className='text-secondary'>
-                    This item also spans 2 columns for balanced layout.
-                  </p>
-                </div>
-              </GridItem>
-            </Grid>
+    <div className='min-h-screen bg-background'>
+      {/* Hero Section */}
+      <section className='relative bg-gradient-to-br from-accent-red/10 via-background to-accent-red/5 py-16'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-4xl mx-auto text-center'>
+            <h1 className='heading-1 mb-6 bg-gradient-to-r from-accent-red to-accent-red/80 bg-clip-text text-transparent'>
+              Welcome to CineFlex
+            </h1>
+            <p className='body-large mb-8 text-secondary max-w-2xl mx-auto'>
+              Discover amazing movies and TV shows with our modern, responsive
+              design system
+            </p>
+            <div className='flex gap-4 justify-center flex-wrap'>
+              <Button variant='primary' size='lg'>
+                Explore Movies
+              </Button>
+              <Button variant='outline' size='lg'>
+                View Watchlist
+              </Button>
+            </div>
+            <p className='text-sm text-tertiary mt-6'>
+              Current route: {ROUTES.HOME}
+            </p>
           </div>
+        </div>
+      </section>
 
-          {/* Movie Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Movie Grid Layout</h3>
-            <Grid variant='movie' gap='md'>
-              {Array.from({ length: 6 }, (_, i) => (
-                <GridItem key={i}>
-                  <div className='bg-secondary p-4 rounded-lg border border-surface-border aspect-[2/3] flex flex-col justify-between'>
-                    <div className='bg-tertiary h-32 rounded mb-3'></div>
-                    <div>
-                      <h4 className='heading-6 mb-1'>Movie Title {i + 1}</h4>
-                      <p className='text-xs text-tertiary'>2024 • Action</p>
-                    </div>
-                  </div>
-                </GridItem>
-              ))}
-            </Grid>
-          </div>
-
-          {/* Hero Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Hero Grid Layout</h3>
-            <Grid variant='hero' gap='xl'>
-              <GridItem>
-                <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
-                  <h4 className='heading-4 mb-4'>Hero Content</h4>
-                  <p className='text-secondary mb-4'>
-                    This is the main hero content area with larger text and more
-                    prominent styling.
-                  </p>
-                  <Button variant='primary'>Call to Action</Button>
-                </div>
-              </GridItem>
-              <GridItem>
-                <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
-                  <h4 className='heading-4 mb-4'>Supporting Content</h4>
-                  <p className='text-secondary mb-4'>
-                    This is the supporting content area that complements the
-                    hero section.
-                  </p>
-                  <Button variant='outline'>Learn More</Button>
-                </div>
-              </GridItem>
-            </Grid>
-          </div>
-
-          {/* Content Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Content Grid Layout</h3>
-            <Grid variant='content' gap='md'>
-              {Array.from({ length: 4 }, (_, i) => (
-                <GridItem key={i}>
-                  <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                    <h4 className='heading-5 mb-2'>Content Card {i + 1}</h4>
-                    <p className='text-secondary'>
-                      This is a content card that adapts to different screen
-                      sizes using the responsive grid system.
-                    </p>
-                  </div>
-                </GridItem>
-              ))}
-            </Grid>
-          </div>
-
-          {/* Custom Column Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Custom Column Grid</h3>
-            <Grid columns={3} gap='lg'>
-              <GridItem span={2}>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Wide Content (2 columns)</h4>
-                  <p className='text-secondary'>
-                    This item spans 2 out of 3 columns.
-                  </p>
-                </div>
-              </GridItem>
-              <GridItem>
-                <div className='bg-secondary p-6 rounded-lg border border-surface-border'>
-                  <h4 className='heading-5 mb-2'>Narrow Content</h4>
-                  <p className='text-secondary'>This item takes 1 column.</p>
-                </div>
-              </GridItem>
-            </Grid>
-          </div>
-        </section>
-
+      {/* Component Showcase */}
+      <div className='container mx-auto px-6 py-12'>
         {/* MovieCard Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>MovieCard Component</h2>
-          <p className='body-large mb-6'>
-            MovieCard component following DESIGN.md specifications with 2/3
-            aspect ratio, hover effects, and design system typography.
-          </p>
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>MovieCard Component</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Interactive movie cards with hover effects, watchlist
+              functionality, and responsive design
+            </p>
+          </div>
 
-          {/* MovieCard Grid */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Movie Cards with Hover Effects</h3>
-            <Grid variant='movie' gap='md'>
-              {sampleMovies.map(movie => (
+          <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+            <h3 className='heading-4 mb-6 text-center'>
+              Interactive Movie Cards
+            </h3>
+            <Grid variant='movie' gap='lg'>
+              {sampleMovies.slice(0, 6).map(movie => (
                 <GridItem key={movie.id}>
                   <MovieCard
                     movie={movie}
@@ -358,123 +214,147 @@ export const HomePage: React.FC = () => {
         </section>
 
         {/* MovieGrid Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>MovieGrid Component</h2>
-          <p className='body-large mb-6'>
-            MovieGrid component following DESIGN.md specifications with
-            responsive grid (2→6 columns), 4pt spacing system, and skeleton
-            loading states.
-          </p>
-
-          {/* MovieGrid with Movies */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>MovieGrid with Movies</h3>
-            <MovieGrid
-              movies={sampleMovies}
-              onAddToWatchlist={movieId => {
-                // eslint-disable-next-line no-console
-                console.log(`Added movie ${movieId} to watchlist`);
-              }}
-              onMovieClick={movieId => {
-                // eslint-disable-next-line no-console
-                console.log(`Clicked on movie ${movieId}`);
-              }}
-            />
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>MovieGrid Component</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Responsive grid system that adapts from 1 column on mobile to 6
+              columns on large screens
+            </p>
           </div>
 
-          {/* MovieGrid Loading State */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>MovieGrid Loading State</h3>
-            <MovieGrid movies={[]} loading={true} />
-          </div>
-
-          {/* MovieGrid Empty State */}
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>MovieGrid Empty State</h3>
-            <MovieGrid movies={[]}>
-              <Button variant='primary' size='sm'>
-                Browse Popular Movies
-              </Button>
-            </MovieGrid>
-          </div>
-        </section>
-
-        {/* Responsive Hooks Showcase */}
-        <section className='mb-12'>
-          <ResponsiveShowcase />
-        </section>
-
-        {/* Responsive Breakpoints Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>Responsive Breakpoints Test</h2>
-          <p className='body-large mb-6'>
-            Testing all design system breakpoints: xs (475px), sm (640px), md
-            (768px), lg (1024px), xl (1280px), 2xl (1536px)
-          </p>
-
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>Current Breakpoint Indicators</h3>
-            <div className='grid gap-4 mb-6'>
-              <div className='xs:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>XS (≤474px):</strong> Mobile - 1 column grid, compact
-                spacing
-              </div>
-              <div className='hidden xs:block sm:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>SM (475px-639px):</strong> Small mobile - 2 columns,
-                basic spacing
-              </div>
-              <div className='hidden sm:block md:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>MD (640px-767px):</strong> Large mobile - 3 columns,
-                comfortable spacing
-              </div>
-              <div className='hidden md:block lg:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>LG (768px-1023px):</strong> Tablet - 4 columns, standard
-                spacing
-              </div>
-              <div className='hidden lg:block xl:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>XL (1024px-1279px):</strong> Small desktop - 5 columns,
-                generous spacing
-              </div>
-              <div className='hidden xl:block 2xl:hidden bg-accent-red text-white p-3 rounded'>
-                <strong>2XL (1280px-1535px):</strong> Desktop - 6 columns,
-                premium spacing
-              </div>
-              <div className='hidden 2xl:block bg-accent-red text-white p-3 rounded'>
-                <strong>3XL (≥1536px):</strong> Large desktop - 6 columns,
-                maximum spacing
-              </div>
+          <div className='space-y-12'>
+            {/* MovieGrid with Movies */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>
+                MovieGrid with Movies
+              </h3>
+              <MovieGrid
+                movies={sampleMovies}
+                onAddToWatchlist={movieId => {
+                  // eslint-disable-next-line no-console
+                  console.log(`Added movie ${movieId} to watchlist`);
+                }}
+                onMovieClick={movieId => {
+                  // eslint-disable-next-line no-console
+                  console.log(`Clicked on movie ${movieId}`);
+                }}
+              />
             </div>
 
-            <h3 className='heading-4 mb-4'>Responsive Movie Grid Test</h3>
-            <p className='body-base mb-4'>
-              This grid should adapt from 1 column on mobile to 6 columns on
-              large screens:
+            {/* Loading State */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Loading State</h3>
+              <MovieGrid movies={[]} loading={true} />
+            </div>
+
+            {/* Empty State */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Empty State</h3>
+              <MovieGrid movies={[]}>
+                <div className='text-center'>
+                  <Button variant='primary' size='lg'>
+                    Browse Popular Movies
+                  </Button>
+                </div>
+              </MovieGrid>
+            </div>
+          </div>
+        </section>
+
+        {/* Grid System Showcase */}
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>Grid System</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Flexible grid layouts for different content types and screen sizes
             </p>
-            <MovieGrid
-              movies={sampleMovies}
-              onAddToWatchlist={movieId => {
-                // eslint-disable-next-line no-console
-                console.log(`Added movie ${movieId} to watchlist`);
-              }}
-              onMovieClick={movieId => {
-                // eslint-disable-next-line no-console
-                console.log(`Clicked on movie ${movieId}`);
-              }}
-            />
+          </div>
+
+          <div className='space-y-12'>
+            {/* Bento Grid */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Bento Grid Layout</h3>
+              <Grid variant='bento' gap='lg'>
+                <GridItem span={2}>
+                  <div className='bg-secondary p-6 rounded-lg border border-surface-border h-full'>
+                    <h4 className='heading-5 mb-3'>Featured Content</h4>
+                    <p className='text-secondary'>
+                      This item spans 2 columns in the bento grid layout,
+                      perfect for highlighting important content.
+                    </p>
+                  </div>
+                </GridItem>
+                <GridItem>
+                  <div className='bg-secondary p-6 rounded-lg border border-surface-border h-full'>
+                    <h4 className='heading-5 mb-3'>Regular Item</h4>
+                    <p className='text-secondary'>
+                      Standard grid item with single column span.
+                    </p>
+                  </div>
+                </GridItem>
+                <GridItem>
+                  <div className='bg-secondary p-6 rounded-lg border border-surface-border h-full'>
+                    <h4 className='heading-5 mb-3'>Another Item</h4>
+                    <p className='text-secondary'>
+                      Another standard grid item.
+                    </p>
+                  </div>
+                </GridItem>
+                <GridItem span={2}>
+                  <div className='bg-secondary p-6 rounded-lg border border-surface-border h-full'>
+                    <h4 className='heading-5 mb-3'>Wide Content</h4>
+                    <p className='text-secondary'>
+                      This item also spans 2 columns for balanced layout and
+                      better visual hierarchy.
+                    </p>
+                  </div>
+                </GridItem>
+              </Grid>
+            </div>
+
+            {/* Hero Grid */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Hero Grid Layout</h3>
+              <Grid variant='hero' gap='xl'>
+                <GridItem>
+                  <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
+                    <h4 className='heading-4 mb-4'>Hero Content</h4>
+                    <p className='text-secondary mb-6'>
+                      This is the main hero content area with larger text and
+                      more prominent styling for important messaging.
+                    </p>
+                    <Button variant='primary'>Call to Action</Button>
+                  </div>
+                </GridItem>
+                <GridItem>
+                  <div className='bg-secondary p-8 rounded-lg border border-surface-border'>
+                    <h4 className='heading-4 mb-4'>Supporting Content</h4>
+                    <p className='text-secondary mb-6'>
+                      This is the supporting content area that complements the
+                      hero section with additional information.
+                    </p>
+                    <Button variant='outline'>Learn More</Button>
+                  </div>
+                </GridItem>
+              </Grid>
+            </div>
           </div>
         </section>
 
         {/* MovieDetails Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>MovieDetails Component</h2>
-          <p className='body-large mb-6'>
-            MovieDetails component following DESIGN.md specifications with hero
-            section, information tabs, and cast/crew sections.
-          </p>
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>MovieDetails Component</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Comprehensive movie information display with hero section, tabs,
+              and cast/crew details
+            </p>
+          </div>
 
-          <div className='mb-8'>
-            <h3 className='heading-4 mb-4'>
-              MovieDetails with Hero Section and Tabs
+          <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+            <h3 className='heading-4 mb-6 text-center'>
+              MovieDetails with Hero Section
             </h3>
             <MovieDetails
               movie={sampleMovieDetails}
@@ -490,141 +370,215 @@ export const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Component Showcase */}
-        <section className='mb-12'>
-          <h2 className='heading-3 mb-6'>Foundational Components</h2>
-
-          {/* Button Showcase */}
-          <div className='mb-12'>
-            <h3 className='heading-4 mb-4'>Button Components</h3>
-            <div className='flex gap-4 flex-wrap'>
-              <Button variant='primary'>Primary Button</Button>
-              <Button variant='secondary'>Secondary Button</Button>
-              <Button variant='outline'>Outline Button</Button>
-              <Button variant='ghost'>Ghost Button</Button>
-              <Button variant='primary' size='sm'>
-                Small
-              </Button>
-              <Button variant='primary' size='lg'>
-                Large
-              </Button>
-              <Button variant='primary' loading>
-                Loading
-              </Button>
-              <Button variant='primary' disabled>
-                Disabled
-              </Button>
-            </div>
+        {/* UI Components Showcase */}
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>UI Components</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Foundational components built with the design system
+            </p>
           </div>
 
-          {/* Input Showcase */}
-          <div className='mb-12'>
-            <h3 className='heading-4 mb-4'>Input Components</h3>
-            <div className='flex gap-4 flex-wrap'>
-              <div className='w-64'>
-                <Input
-                  placeholder='Regular input'
-                  onChange={_value => {
-                    // Handle input change
-                  }}
-                />
+          <div className='space-y-12'>
+            {/* Buttons */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Button Components</h3>
+              <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+                <div className='space-y-4'>
+                  <h4 className='heading-6 text-center'>Variants</h4>
+                  <div className='space-y-3'>
+                    <Button variant='primary' className='w-full'>
+                      Primary
+                    </Button>
+                    <Button variant='secondary' className='w-full'>
+                      Secondary
+                    </Button>
+                    <Button variant='outline' className='w-full'>
+                      Outline
+                    </Button>
+                    <Button variant='ghost' className='w-full'>
+                      Ghost
+                    </Button>
+                  </div>
+                </div>
+                <div className='space-y-4'>
+                  <h4 className='heading-6 text-center'>Sizes</h4>
+                  <div className='space-y-3'>
+                    <Button variant='primary' size='sm' className='w-full'>
+                      Small
+                    </Button>
+                    <Button variant='primary' className='w-full'>
+                      Medium
+                    </Button>
+                    <Button variant='primary' size='lg' className='w-full'>
+                      Large
+                    </Button>
+                  </div>
+                </div>
+                <div className='space-y-4'>
+                  <h4 className='heading-6 text-center'>States</h4>
+                  <div className='space-y-3'>
+                    <Button variant='primary' loading className='w-full'>
+                      Loading
+                    </Button>
+                    <Button variant='primary' disabled className='w-full'>
+                      Disabled
+                    </Button>
+                  </div>
+                </div>
+                <div className='space-y-4'>
+                  <h4 className='heading-6 text-center'>Interactive</h4>
+                  <div className='space-y-3'>
+                    <Button
+                      variant='primary'
+                      className='w-full hover:scale-105 transition-transform'
+                    >
+                      Hover Me
+                    </Button>
+                    <Button
+                      variant='outline'
+                      className='w-full hover:bg-accent-red hover:text-white transition-colors'
+                    >
+                      Color Change
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <div className='w-64'>
-                <Input
-                  type='search'
-                  placeholder='Search movies...'
-                  onChange={_value => {
-                    // Handle search
-                  }}
-                />
+            </div>
+
+            {/* Inputs */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Input Components</h3>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+                <div className='space-y-2'>
+                  <label className='text-sm font-medium'>Regular Input</label>
+                  <Input placeholder='Enter text...' onChange={_value => {}} />
+                </div>
+                <div className='space-y-2'>
+                  <label className='text-sm font-medium'>Search Input</label>
+                  <Input
+                    type='search'
+                    placeholder='Search movies...'
+                    onChange={_value => {}}
+                  />
+                </div>
+                <div className='space-y-2'>
+                  <label className='text-sm font-medium'>Error Input</label>
+                  <Input
+                    placeholder='Invalid input'
+                    error='This field is required'
+                    onChange={_value => {}}
+                  />
+                </div>
+                <div className='space-y-2'>
+                  <label className='text-sm font-medium'>Disabled Input</label>
+                  <Input placeholder='Disabled' disabled />
+                </div>
               </div>
-              <div className='w-64'>
-                <Input
-                  placeholder='Error input'
-                  error='This field is required'
-                  onChange={_value => {
-                    // Handle error input
-                  }}
-                />
-              </div>
-              <div className='w-64'>
-                <Input placeholder='Disabled input' disabled />
+            </div>
+
+            {/* Loading Components */}
+            <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+              <h3 className='heading-4 mb-6 text-center'>Loading Components</h3>
+
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                {/* Spinners */}
+                <div className='space-y-4'>
+                  <h4 className='heading-5 text-center'>Spinners</h4>
+                  <div className='flex justify-center gap-6'>
+                    <div className='flex flex-col items-center gap-2'>
+                      <Spinner size='sm' />
+                      <span className='text-sm text-tertiary'>Small</span>
+                    </div>
+                    <div className='flex flex-col items-center gap-2'>
+                      <Spinner size='md' />
+                      <span className='text-sm text-tertiary'>Medium</span>
+                    </div>
+                    <div className='flex flex-col items-center gap-2'>
+                      <Spinner size='lg' />
+                      <span className='text-sm text-tertiary'>Large</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Skeletons */}
+                <div className='space-y-4'>
+                  <h4 className='heading-5 text-center'>Skeletons</h4>
+                  <div className='flex gap-4 justify-center'>
+                    <div className='flex flex-col gap-2'>
+                      <Skeleton width='60px' height='60px' />
+                      <span className='text-sm text-tertiary'>Square</span>
+                    </div>
+                    <div className='flex flex-col gap-2'>
+                      <Skeleton width='120px' height='20px' />
+                      <span className='text-sm text-tertiary'>Text</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Skeleton Grid */}
+                <div className='space-y-4'>
+                  <h4 className='heading-5 text-center'>Skeleton Grid</h4>
+                  <SkeletonGrid count={4} />
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Loading Showcase */}
-          <div className='mb-12'>
-            <h3 className='heading-4 mb-6'>Loading Components</h3>
+        {/* Responsive Showcase */}
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>Responsive Design</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Test responsive behavior and breakpoint detection
+            </p>
+          </div>
 
-            {/* Spinners */}
-            <div className='mb-8'>
-              <h4 className='heading-5 mb-4'>Spinners</h4>
-              <div className='flex gap-6 items-center'>
-                <div className='flex flex-col items-center gap-2'>
-                  <Spinner size='sm' />
-                  <span className='text-sm text-tertiary'>Small</span>
-                </div>
-                <div className='flex flex-col items-center gap-2'>
-                  <Spinner size='md' />
-                  <span className='text-sm text-tertiary'>Medium</span>
-                </div>
-                <div className='flex flex-col items-center gap-2'>
-                  <Spinner size='lg' />
-                  <span className='text-sm text-tertiary'>Large</span>
-                </div>
+          <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+            <ResponsiveShowcase />
+          </div>
+        </section>
+
+        {/* Breakpoint Test */}
+        <section className='mb-16'>
+          <div className='text-center mb-12'>
+            <h2 className='heading-2 mb-4'>Breakpoint Indicators</h2>
+            <p className='body-large text-secondary max-w-3xl mx-auto'>
+              Visual indicators for current screen size and responsive behavior
+            </p>
+          </div>
+
+          <div className='bg-surface rounded-xl p-8 border border-surface-border'>
+            <div className='grid gap-4'>
+              <div className='xs:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>XS (≤474px):</strong> Mobile - 1 column grid, compact
+                spacing
               </div>
-            </div>
-
-            {/* Basic Skeletons */}
-            <div className='mb-8'>
-              <h4 className='heading-5 mb-4'>Basic Skeletons</h4>
-              <div className='flex gap-6 items-end'>
-                <div className='flex flex-col gap-2'>
-                  <Skeleton width='200px' height='20px' />
-                  <span className='text-sm text-tertiary'>Rectangle</span>
-                </div>
-                <div className='flex flex-col gap-2'>
-                  <Skeleton width='60px' height='60px' />
-                  <span className='text-sm text-tertiary'>Square</span>
-                </div>
-                <div className='flex flex-col gap-2'>
-                  <Skeleton width='120px' height='120px' />
-                  <span className='text-sm text-tertiary'>Large Square</span>
-                </div>
+              <div className='hidden xs:block sm:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>SM (475px-639px):</strong> Small mobile - 2 columns,
+                basic spacing
               </div>
-            </div>
-
-            {/* Skeleton Text */}
-            <div className='mb-8'>
-              <h4 className='heading-5 mb-4'>Skeleton Text</h4>
-              <div className='flex gap-8'>
-                <div className='flex flex-col gap-2'>
-                  <SkeletonText lines={3} />
-                  <span className='text-sm text-tertiary'>3 Lines</span>
-                </div>
-                <div className='flex flex-col gap-2'>
-                  <SkeletonText lines={1} />
-                  <span className='text-sm text-tertiary'>1 Line</span>
-                </div>
+              <div className='hidden sm:block md:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>MD (640px-767px):</strong> Large mobile - 3 columns,
+                comfortable spacing
               </div>
-            </div>
-
-            {/* Skeleton Cards */}
-            <div className='mb-8'>
-              <h4 className='heading-5 mb-4'>Skeleton Cards</h4>
-              <div className='flex gap-4 flex-wrap'>
-                <SkeletonCard />
-                <SkeletonCard />
-                <SkeletonCard />
-                <SkeletonCard />
+              <div className='hidden md:block lg:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>LG (768px-1023px):</strong> Tablet - 4 columns, standard
+                spacing
               </div>
-            </div>
-
-            {/* Skeleton Grid */}
-            <div>
-              <h4 className='heading-5 mb-4'>Skeleton Grid (Responsive)</h4>
-              <SkeletonGrid count={6} />
+              <div className='hidden lg:block xl:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>XL (1024px-1279px):</strong> Small desktop - 5 columns,
+                generous spacing
+              </div>
+              <div className='hidden xl:block 2xl:hidden bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>2XL (1280px-1535px):</strong> Desktop - 6 columns,
+                premium spacing
+              </div>
+              <div className='hidden 2xl:block bg-accent-red text-white p-4 rounded-lg text-center'>
+                <strong>3XL (≥1536px):</strong> Large desktop - 6 columns,
+                maximum spacing
+              </div>
             </div>
           </div>
         </section>
