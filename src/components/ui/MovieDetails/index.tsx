@@ -367,7 +367,9 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({
                 )}
                 <div className={styles.heroMeta}>
                   <span className={styles.heroYear}>
-                    {new Date(movie.release_date).getFullYear()}
+                    {movie.release_date
+                      ? new Date(movie.release_date).getFullYear()
+                      : 'Unknown'}
                   </span>
                   <span className={styles.heroRuntime}>
                     {formatRuntime(movie.runtime)}

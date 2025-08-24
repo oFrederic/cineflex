@@ -4,9 +4,11 @@ import styles from './MovieCard.module.css';
 
 export interface Movie {
   id: number;
-  title: string;
+  title?: string;
+  name?: string;
   poster_path: string | null;
-  release_date: string;
+  release_date?: string;
+  first_air_date?: string;
   vote_average: number;
   overview?: string;
   genre_ids?: number[];
@@ -73,6 +75,10 @@ export const MovieCard: React.FC<MovieCardProps> = ({
     return rating.toFixed(1);
   };
 
+  // Get the appropriate title and date
+  const title = movie.title || movie.name || 'Unknown';
+  const date = movie.release_date || movie.first_air_date || '';
+
   const cardClasses = [styles.movieCard, className].filter(Boolean).join(' ');
 
   // Apply responsive styles inline
@@ -98,13 +104,13 @@ export const MovieCard: React.FC<MovieCardProps> = ({
           handleCardClick();
         }
       }}
-      aria-label={`${movie.title} - ${formatYear(movie.release_date)}`}
+      aria-label={`${title} - ${date ? formatYear(date) : 'Unknown'}`}
     >
       {/* Movie Poster */}
       <div className={styles.posterContainer}>
         <img
           src={buildTMDBImageUrl(movie.poster_path)}
-          alt={`${movie.title} poster`}
+          alt={`${title} poster`}
           className={styles.poster}
           loading='lazy'
         />
@@ -115,7 +121,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
             <button
               onClick={handleAddToWatchlist}
               className={styles.watchlistButton}
-              aria-label={`Add ${movie.title} to watchlist`}
+              aria-label={`Add ${title} to watchlist`}
             >
               <svg
                 width='20'
@@ -136,12 +142,14 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 
       {/* Movie Content */}
       <div className={styles.content}>
-        <h3 className={styles.title} style={titleStyle} title={movie.title}>
-          {movie.title}
+        <h3 className={styles.title} style={titleStyle} title={title}>
+          {title}
         </h3>
 
         <div className={styles.meta}>
-          <span className={styles.year}>{formatYear(movie.release_date)}</span>
+          <span className={styles.year}>
+            {date ? formatYear(date) : 'Unknown'}
+          </span>
           <div className={styles.rating}>
             <svg
               width='12'
